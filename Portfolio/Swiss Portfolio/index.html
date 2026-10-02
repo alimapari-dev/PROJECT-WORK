@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALI MAPARI® — Portfolio / 2026</title>
+  <meta name="description" content="Portfolio of Ali Mapari — Aspiring AI Engineer & Data Science Student. Building intelligent, data-driven digital systems.">
+
+  <!-- Fonts: Inter for clean grotesque Swiss typography, IBM Plex Mono for technical editorial indexing -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Compiled Tailwind CSS v4 Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased selection:bg-ink selection:text-paper">
+  
+  <!-- Minimal Reading Progress Line -->
+  <div id="scroll-progress"></div>
+
+  <!-- 00 — Editorial Header -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-paper/95 backdrop-blur-sm border-b border-gridBorder transition-all duration-300">
+    <div class="max-w-[1720px] mx-auto px-4 sm:px-8 py-3.5 sm:py-4 grid grid-cols-12 items-center text-xs tracking-wider uppercase font-mono">
+
+      <!-- Brand & Year (Span 4 cols) -->
+      <div class="col-span-6 lg:col-span-4 flex items-center gap-3">
+        <span class="red-square flex-shrink-0"></span>
+        <a href="#" class="font-bold text-ink hover:text-signalRed transition-colors flex items-center gap-2">
+          <span>ALI MAPARI®</span>
+          <span class="text-neutralGrey hidden sm:inline">/</span>
+          <span class="text-neutralGrey hidden sm:inline">2026 ARCHIVE</span>
+        </a>
+      </div>
+
+      <!-- Live Status Indicator (Span 4 cols on desktop) -->
+      <div class="hidden lg:flex col-span-4 items-center justify-center gap-2.5 text-[11px] text-ink">
+        <span class="w-2 h-2 rounded-full bg-signalRed animate-signal flex-shrink-0"></span>
+        <span class="tracking-widest">AVAILABLE FOR INTERNSHIPS &amp; COLLABORATIONS</span>
+      </div>
+
+      <!-- Typographic Navigation (Span 4 cols) -->
+      <nav class="col-span-6 lg:col-span-4 flex justify-end items-center gap-4 sm:gap-7 font-mono text-[11px]">
+        <a href="#work" class="hover:text-signalRed transition-colors flex items-center gap-1 group">
+          <span class="text-neutralGrey group-hover:text-signalRed transition-colors">01</span>
+          <span>WORK</span>
+        </a>
+        <a href="#capabilities" class="hover:text-signalRed transition-colors flex items-center gap-1 group">
+          <span class="text-neutralGrey group-hover:text-signalRed transition-colors">02</span>
+          <span>SKILLS</span>
+        </a>
+        <a href="#education" class="hover:text-signalRed transition-colors flex items-center gap-1 group">
+          <span class="text-neutralGrey group-hover:text-signalRed transition-colors">03</span>
+          <span>JOURNEY</span>
+        </a>
+        <a href="#contact" class="hover:text-signalRed transition-colors flex items-center gap-1 group font-semibold text-ink">
+          <span class="text-signalRed">→</span>
+          <span>CONTACT</span>
+        </a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="relative pt-14">
+
+    <!-- 01 — HERO SECTION -->
+    <section class="relative min-h-[92vh] flex flex-col justify-between border-b border-gridBorder px-4 sm:px-8 max-w-[1720px] mx-auto pt-8 pb-10">
+
+      <!-- Top Meta Row & Registration Marks -->
+      <div class="grid grid-cols-12 gap-4 pt-4 text-xs font-mono border-b border-gridBorder pb-4 text-neutralGrey">
+        <div class="col-span-6 lg:col-span-3 flex items-center gap-2">
+          <span class="text-ink font-semibold">FIG. 00-A</span>
+          <span>// SYSTEM PORTFOLIO</span>
+        </div>
+        <div class="hidden lg:flex col-span-3 items-center">
+          <span>LAT 19.0760° N, LON 72.8777° E</span>
+        </div>
+        <div class="hidden lg:flex col-span-3 items-center text-ink">
+          <span>DISCIPLINE: DATA SCIENCE &amp; ML</span>
+        </div>
+        <div class="col-span-6 lg:col-span-3 flex justify-end items-center gap-3">
+          <div class="reg-mark opacity-60"></div>
+          <span class="text-ink font-medium">B.VOC CANDIDATE</span>
+        </div>
+      </div>
+
+      <!-- Centerpiece Typographic Composition -->
+      <div class="my-auto py-10 lg:py-16">
+        <div class="grid grid-cols-12 gap-2 sm:gap-6 items-end">
+
+          <div class="col-span-12 xl:col-span-10">
+            <h1 class="hero-title font-extrabold text-ink uppercase select-none tracking-tighter">
+              <span class="block">ALI</span>
+              <span class="block text-ink flex items-baseline gap-4 sm:gap-8">
+                MAPARI
+                <span class="text-signalRed text-3xl sm:text-7xl lg:text-9xl font-mono font-light leading-none">.</span>
+              </span>
+            </h1>
+          </div>
+
+          <!-- Restrained Swiss Data Matrix & Coordinate Box -->
+          <div class="col-span-12 xl:col-span-2 flex xl:flex-col justify-between xl:justify-end gap-6 pb-2 text-xs font-mono">
+            <div class="border border-gridBorder p-3.5 bg-paper/60 w-full max-w-[280px]">
+              <div class="flex justify-between items-center text-[10px] text-neutralGrey mb-2 pb-1 border-b border-gridBorder">
+                <span>SYSTEM_COORDS</span>
+                <span class="text-signalRed font-bold">12_COL_GRID</span>
+              </div>
+              <div class="grid grid-cols-6 gap-1 my-2">
+                <div class="h-2 bg-ink"></div>
+                <div class="h-2 bg-ink"></div>
+                <div class="h-2 bg-ink"></div>
+                <div class="h-2 bg-signalRed"></div>
+                <div class="h-2 bg-gridBorder"></div>
+                <div class="h-2 bg-gridBorder"></div>
+              </div>
+              <p class="text-[11px] leading-tight text-ink font-mono mt-2">
+                REPRESENTING CONTINUOUS HYPOTHESES VIA ACCURATE STATISTICAL MODELLING.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom Hero Meta Grid & Actions -->
+      <div class="grid grid-cols-12 gap-y-6 gap-x-4 pt-6 border-t border-gridBorder items-start font-mono text-xs">
+
+        <div class="col-span-12 sm:col-span-6 lg:col-span-3">
+          <span class="block text-neutralGrey text-[10px] mb-1">// POSITIONING STATEMENT</span>
+          <p class="font-sans text-base lg:text-lg font-bold text-ink leading-snug tracking-tight uppercase">
+            Building intelligence<br>from data.
+          </p>
+        </div>
+
+        <div class="col-span-12 sm:col-span-6 lg:col-span-3">
+          <span class="block text-neutralGrey text-[10px] mb-1">// ROLE &amp; ACADEMIC CONTEXT</span>
+          <p class="text-ink uppercase font-semibold leading-relaxed">
+            Aspiring AI Engineer<br>
+            <span class="text-neutralGrey font-normal">&amp; Data Science Student</span>
+          </p>
+        </div>
+
+        <div class="col-span-12 sm:col-span-6 lg:col-span-3">
+          <span class="block text-neutralGrey text-[10px] mb-1">// LOCATIONAL INDEX</span>
+          <p class="text-ink leading-relaxed uppercase">
+            Based in — Mumbai, India<br>
+            Focus — AI / ML / Data<br>
+            Status — Learning &amp; Building
+          </p>
+        </div>
+
+        <div class="col-span-12 sm:col-span-6 lg:col-span-3 flex flex-col justify-end gap-2.5 sm:items-end">
+          <a href="#work" class="inline-flex items-center gap-2 text-ink hover:text-signalRed font-semibold text-xs tracking-wider transition-colors group">
+            <span>VIEW SELECTED WORK</span>
+            <span class="text-signalRed group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform">↘</span>
+          </a>
+          <a href="#contact" class="inline-flex items-center gap-2 text-neutralGrey hover:text-ink font-medium text-xs tracking-wider transition-colors group">
+            <span>START A CONVERSATION</span>
+            <span class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- 02 — INTRODUCTION (STRUCTURED EDITORIAL ESSAY) -->
+    <section class="border-b border-gridBorder max-w-[1720px] mx-auto px-4 sm:px-8 py-20 lg:py-28">
+
+      <!-- Section Tag Header -->
+      <div class="flex items-center justify-between font-mono text-xs text-neutralGrey pb-8 border-b border-gridBorder">
+        <div class="flex items-center gap-3">
+          <span class="text-signalRed font-bold">02</span>
+          <span class="text-ink uppercase font-semibold">/ PHILOSOPHY &amp; PROFILE</span>
+        </div>
+        <div class="hidden sm:flex items-center gap-2">
+          <span>INDEX SPECIFICATION 2026</span>
+          <span class="reg-mark opacity-40"></span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-12 gap-8 lg:gap-12 pt-12 items-start">
+
+        <!-- Large Editorial Manifesto Headline (Span 7) -->
+        <div class="col-span-12 lg:col-span-7">
+          <h2 class="statement-title font-bold text-ink uppercase tracking-tight">
+            I turn data, logic,<br>
+            and curiosity into<br>
+            useful digital<br>
+            systems.
+          </h2>
+        </div>
+
+        <!-- Descriptive Paragraph & Structured Matrix (Span 5) -->
+        <div class="col-span-12 lg:col-span-5 flex flex-col justify-between space-y-10 lg:pl-6 lg:border-l border-gridBorder">
+
+          <div class="space-y-4 font-sans text-base lg:text-lg text-ink/90 leading-relaxed">
+            <p>
+              I’m <strong class="text-ink font-semibold">Ali Mapari</strong>, an aspiring AI engineer and data science student interested in building intelligent systems, exploring meaningful patterns, and transforming technical ideas into practical digital experiences.
+            </p>
+            <p class="text-neutralGrey text-sm sm:text-base font-normal">
+              Rooted in the rigorous tenets of information architecture, I approach algorithms not as opaque black boxes, but as transparent, purposeful instruments designed to clarify ambiguous realities.
+            </p>
+          </div>
+
+          <!-- Profile Index Grid -->
+          <div class="border-t border-gridBorder pt-6 font-mono text-xs">
+            <div class="text-[10px] text-neutralGrey uppercase tracking-widest mb-4">// CORE EXPLORATION VECTORS</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6">
+              <div class="flex items-center justify-between pb-2 border-b border-gridBorder/60 group">
+                <span class="text-ink font-semibold">01 — MACHINE LEARNING</span>
+                <span class="text-signalRed text-[10px]">●</span>
+              </div>
+              <div class="flex items-center justify-between pb-2 border-b border-gridBorder/60 group">
+                <span class="text-ink font-semibold">02 — DATA ANALYSIS</span>
+                <span class="text-signalRed text-[10px]">●</span>
+              </div>
+              <div class="flex items-center justify-between pb-2 border-b border-gridBorder/60 group">
+                <span class="text-ink font-semibold">03 — ARTIFICIAL INTELLIGENCE</span>
+                <span class="text-signalRed text-[10px]">●</span>
+              </div>
+              <div class="flex items-center justify-between pb-2 border-b border-gridBorder/60 group">
+                <span class="text-ink font-semibold">04 — DIGITAL DEVELOPMENT</span>
+                <span class="text-signalRed text-[10px]">●</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- 03 — SELECTED WORK (EDITORIAL CASE STUDIES) -->
+    <section id="work" class="border-b border-gridBorder max-w-[1720px] mx-auto">
+
+      <!-- Section Header -->
+      <div class="px-4 sm:px-8 py-8 border-b border-gridBorder flex flex-col sm:flex-row sm:items-center justify-between font-mono text-xs gap-4">
+        <div class="flex items-center gap-3">
+          <span class="text-signalRed font-bold">03</span>
+          <span class="text-ink uppercase font-semibold text-sm sm:text-xs">/ SELECTED WORK (CASE STUDIES)</span>
+        </div>
+        <div class="flex items-center gap-6 text-neutralGrey">
+          <span class="hidden md:inline">HOVER TO REVEAL TECHNICAL SPECIFICATION</span>
+          <span class="text-ink font-medium">TOTAL ENTRIES: 04</span>
+        </div>
+      </div>
+
+      <!-- Editorial Case Study Rows -->
+      <div class="divide-y divide-gridBorder">
+
+        <!-- Project 01: Natural Language Processing & Sentiment Intelligence -->
+        <article class="project-row group relative px-4 sm:px-8 py-10 lg:py-14 cursor-pointer overflow-hidden">
+          <!-- Active Red Indicator Bar -->
+          <div class="project-red-bar absolute left-0 top-0 bottom-0 w-1.5 bg-signalRed opacity-0 transition-opacity duration-200"></div>
+
+          <div class="grid grid-cols-12 gap-4 lg:gap-8 items-center relative z-10">
+
+            <!-- Index & Classification (Span 2) -->
+            <div class="col-span-12 sm:col-span-3 lg:col-span-2 font-mono text-xs flex sm:flex-col justify-between sm:justify-start gap-1">
+              <span class="text-signalRed font-bold text-sm">01 / NLP &amp; ML</span>
+              <span class="text-neutralGrey">YEAR: 2026</span>
+              <span class="text-neutralGrey hidden sm:inline">STATUS: COMPLETED</span>
+            </div>
+
+            <!-- Title & Brief (Span 5) -->
+            <div class="col-span-12 sm:col-span-9 lg:col-span-5 space-y-2">
+              <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-tight transition-transform duration-200 group-hover:translate-x-2">
+                LexiCore Sentiment Engine
+              </h3>
+              <p class="text-neutralGrey group-hover:text-paper/80 font-sans text-sm sm:text-base leading-snug max-w-xl">
+                End-to-end NLP pipeline classifying nuanced multi-lingual consumer feedback datasets with high recall and automated report generation.
+              </p>
+              <div class="font-mono text-xs text-neutralGrey pt-2 flex flex-wrap gap-2">
+                <span class="project-tag px-2 py-0.5 border border-gridBorder rounded-none uppercase text-[11px]">Python</span>
+                <span class="project-tag px-2 py-0.5 border border-gridBorder rounded-none uppercase text-[11px]">Scikit-Learn</span>
+                <span class="project-tag px-2 py-0.5 border border-gridBorder rounded-none uppercase text-[11px]">NLTK</span>
+                <span class="project-tag px-2 py-0.5 border border-gridBorder rounded-none uppercase text-[11px]">Pandas</span>
+              </div>
+            </div>
+
+            <!-- Visual Graphic / Data Matrix Preview (Span 4) -->
+            <div class="col-span-12 lg:col-span-4 hidden lg:flex justify-center items-center">
+              <div class="w-full h-24 border border-gridBorder/50 group-hover:border-neutralGrey/30 p-3 flex flex-col justify-between font-mono text-[10px] bg-paper/50 group-hover:bg-darkSurface transition-colors">
+                <div class="flex justify-between text-neutralGrey">
+                  <span>CONFUSION_MATRIX_V1</span>
+                  <span class="text-signalRed">F1: 0.92</span>
+                </div>
+                <div class="grid grid-cols-12 gap-1 h-8 items-end">
+                  <div class="bg-signalRed h-[40%]"></div>
+                  <div class="bg-ink group-hover:bg-paper h-[60%]"></div>
+                  <div class="bg-ink group-hover:bg-paper h-[85%]"></div>
+                  <div class="bg-signalRed h-[95%]"></div>
+                  <div class="bg-ink group-hover:bg-paper h-[70%]"></div>
+                  <div class="bg-ink group-hover:bg-paper h-[45%]"></div>
+                  <div class="bg-ink group-hover:bg-paper h-[80%]"></div>
+                  <div class="bg-ink group-hover:bg-paper h-[65%]"></div>
+                  <div class="bg-signalRed h-[90%]"></div>
+                  <div class="bg-ink group-hover:bg-paper h-[75%]"></div>
+                  <div class="bg-ink group-hover:bg-paper h-[50%]"></div>
+                  <div class="bg-ink group-hover:bg-paper h-[92%]"></div>
+                </div>
+                <div class="flex justify-between text-neutralGrey text-[9px]">
+                  <span>SAMPLES: 14,200</span>
+                  <span>LATENCY: 14ms</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Link (Span 1) -->
+            <div class="col-span-12 lg:col-span-1 flex lg:justify-end items-center font-mono text-sm">
+              <span class="project-arrow text-2xl font-light text-ink group-hover:text-signalRed transition-all duration-200 inline-block">
+                ↗
+              </span>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- Project 02: Predictive Healthcare Analytics -->
+        <article class="project-row group relative px-4 sm:px-8 py-10 lg:py-14 cursor-pointer overflow-hidden">
+          <div class="project-red-bar absolute left-0 top-0 bottom-0 w-1.5 bg-signalRed opacity-0 transition-opacity duration-200"></div>
+
+          <div class="grid grid-cols-12 gap-4 lg:gap-8 items-center relative z-10">
+
+            <div class="col-span-12 sm:col-span-3 lg:col-span-2 font-mono text-xs flex sm:flex-col justify-between sm:justify-start gap-1">
+              <span class="text-signalRed font-bold text-sm">02 / PREDICTIVE ML</span>
+              <span class="text-neutralGrey">YEAR: 2025</span>
+              <span class="text-neutralGrey hidden sm:inline">STATUS: BENCHMARKED</span>
+            </div>
+
+            <div class="col-span-12 sm:col-span-9 lg:col-span-5 space-y-2">
+              <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-tight transition-transform duration-200 group-hover:translate-x-2">
+                CardioRisk Predictor
+              </h3>
+              <p class="text-neutralGrey group-hover:text-paper/80 font-sans text-sm sm:text-base leading-snug max-w-xl">
+                Supervised classification model evaluating clinical patient features to forecast cardiovascular risk with feature importance interpretability.
+              </p>
+              <div class="font-mono text-xs text-neutralGrey pt-2 flex flex-wrap gap-2">
+                <span class="project-tag px-2 py-0.5 border border-gridBorder rounded-none uppercase text-[11px]">Python</span>
+                <span class="project-tag px-2 py-0.5 border border-gridBorder rounded-none uppercase text-[11px]">NumPy</span>
+                <span class="project-tag px-2 py-0.5 border border-gridBorder rounded-none uppercase text-[11px]">Seaborn</span>
+                <span class="project-tag px-2 py-0.5 border border-gridBorder rounded-none uppercase text-[11px]">RandomForest</span>
+              </div>
+            </div>
+
+            <div class="col-span-12 lg:col-span-4 hidden lg:flex justify-center items-center">
+              <div class="w-full h-24 border border-gridBorder/50 group-hover:border-neutralGrey/30 p-3 flex flex-col justify-between font-mono text-[10px] bg-paper/50 group-hover:bg-darkSurface transition-colors">
+                <div class="flex justify-between text-neutralGrey">
+                  <span>ROC_AUC_CURVE</span>
+                  <span class="text-signalRed">SCORE: 0.884</span>
+                </div>
+                <div class="w-full h-8 flex items-center gap-1.5">
+                  <div class="w-1/4 h-1.5 bg-signalRed"></div>
+                  <div class="w-1/3 h-1.5 bg-ink group-hover:bg-paper"></div>
+                  <div class="w-1/6 h-1.5 bg-neutralGrey"></div>
+                  <div class="w-1/4 h-1.5 bg-signalRed"></div>
+                </div>
+                <div class="flex justify-between text-neutralGrey text-[9px]">
+                  <span>FEATURE_SHAP_ANALYSIS</span>
+                  <span>N_FEATURES: 18</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-span-12 lg:col-span-1 flex lg:justify-end items-center font-mono text-sm">
+              <span class="project-arrow text-2xl font-light text-ink group-hover:text-signalRed transition-all duration-200 inline-block">
+                ↗
+              </span>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- Project 03: Autonomous Vision & Edge Detection System -->
+        <article class="project-row group relative px-4 sm:px-8 py-10 lg:py-14 cursor-pointer overflow-hidden">
+          <div class="project-red-bar absolute left-0 top-0 bottom-0 w-1.5 bg-signalRed opacity-0 transition-opacity duration-200"></div>
+
+          <div class="grid grid-cols-12 gap-4 lg:gap-8 items-center relative z-10">
+
+            <div class="col-span-12 sm:col-span-3 lg:col-span-2 font-mono text-xs flex sm:flex-col justify-between sm:justify-start gap-1">
+              <span class="text-signalRed font-bold text-sm">03 / COMPUTER VISION</span>
+              <span class="text-neutralGrey">YEAR: 2025</span>
+              <span class="text-neutralGrey hidden sm:inline">STATUS: ARCHIVED</span>
+            </div>
+
+            <div class="col-span-12 sm:col-span-9 lg:col-span-5 space-y-2">
+              <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-tight transition-transform duration-200 group-hover:translate-x-2">
+                SpatialTrack Optical Matrix
+              </h3>
+              <p class="text-neutralGrey group-hover:text-paper/80 font-sans text-sm sm:text-base leading-snug max-w-xl">
+                Real-time geometric contouring and landmark localization pipeline optimized for low-compute embedded edge camera streams.
+              </p>
+              <div class="font-mono text-xs text-neutralGrey pt-2 flex flex-wrap gap-2">
+                <span class="project-tag px-2 py-0.5 border border-gridBorder rounded-none uppercase text-[11px]">OpenCV</span>
+                <span class="project-tag px-2 py-0.5 border border-gridBorder rounded-none uppercase text-[11px]">Python</span>
+                <span class="project-tag px-2 py-0.5 border border-gridBorder rounded-none uppercase text-[11px]">NumPy</span>
+                <span class="project-tag px-2 py-0.5 border border-gridBorder rounded-none uppercase text-[11px]">Edge_AI</span>
+              </div>
+            </div>
+
+            <div class="col-span-12 lg:col-span-4 hidden lg:flex justify-center items-center">
+              <div class="w-full h-24 border border-gridBorder/50 group-hover:border-neutralGrey/30 p-3 flex flex-col justify-between font-mono text-[10px] bg-paper/50 group-hover:bg-darkSurface transition-colors">
+                <div class="flex justify-between text-neutralGrey">
+                  <span>EDGE_KERNEL_5x5</span>
+                  <span class="text-signalRed">FPS: 48</span>
+                </div>
+                <div class="flex items-center justify-between px-4 py-1 border border-gridBorder text-neutralGrey">
+                  <span>[ -1, -1,  2 ]</span>
+                  <span class="text-signalRed font-mono">CONVOLVE</span>
+                  <span>[  1,  2, -1 ]</span>
+                </div>
+                <div class="flex justify-between text-neutralGrey text-[9px]">
+                  <span>RES: 1080x720</span>
+                  <span>QUANTIZED: INT8</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-span-12 lg:col-span-1 flex lg:justify-end items-center font-mono text-sm">
+              <span class="project-arrow text-2xl font-light text-ink group-hover:text-signalRed transition-all duration-200 inline-block">
+                ↗
+              </span>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- Project 04: Structured Urban Data Exploration System -->
+        <article class="project-row group relative px-4 sm:px-8 py-10 lg:py-14 cursor-pointer overflow-hidden">
+          <div class="project-red-bar absolute left-0 top-0 bottom-0 w-1.5 bg-signalRed opacity-0 transition-opacity duration-200"></div>
+
+          <div class="grid grid-cols-12 gap-4 lg:gap-8 items-center relative z-10">
+
+            <div class="col-span-12 sm:col-span-3 lg:col-span-2 font-mono text-xs flex sm:flex-col justify-between sm:justify-start gap-1">
+              <span class="text-signalRed font-bold text-sm">04 / DATA ANALYTICS</span>
+              <span class="text-neutralGrey">YEAR: 2024</span>
+              <span class="text-neutralGrey hidden sm:inline">STATUS: REPOSITORY</span>
+            </div>
+
+            <div class="col-span-12 sm:col-span-9 lg:col-span-5 space-y-2">
+              <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-tight transition-transform duration-200 group-hover:translate-x-2">
+                MetroPulse Spatial Analytics
+              </h3>
+              <p class="text-neutralGrey group-hover:text-paper/80 font-sans text-sm sm:text-base leading-snug max-w-xl">
+                Quantitative multivariate statistical analysis exploring regional traffic congestion correlation with meteorological sensor feeds in Mumbai.
+              </p>
+              <div class="font-mono text-xs text-neutralGrey pt-2 flex flex-wrap gap-2">
+                <span class="project-tag px-2 py-0.5 border border-gridBorder rounded-none uppercase text-[11px]">SQL</span>
+                <span class="project-tag px-2 py-0.5 border border-gridBorder rounded-none uppercase text-[11px]">Pandas</span>
+                <span class="project-tag px-2 py-0.5 border border-gridBorder rounded-none uppercase text-[11px]">Plotly</span>
+                <span class="project-tag px-2 py-0.5 border border-gridBorder rounded-none uppercase text-[11px]">Statistical_Inference</span>
+              </div>
+            </div>
+
+            <div class="col-span-12 lg:col-span-4 hidden lg:flex justify-center items-center">
+              <div class="w-full h-24 border border-gridBorder/50 group-hover:border-neutralGrey/30 p-3 flex flex-col justify-between font-mono text-[10px] bg-paper/50 group-hover:bg-darkSurface transition-colors">
+                <div class="flex justify-between text-neutralGrey">
+                  <span>GEO_HEATMAP_GRID</span>
+                  <span class="text-signalRed">P &lt; 0.001</span>
+                </div>
+                <div class="flex gap-1 items-center h-8">
+                  <div class="flex-1 bg-gridBorder h-3"></div>
+                  <div class="flex-1 bg-neutralGrey h-5"></div>
+                  <div class="flex-1 bg-ink group-hover:bg-paper h-7"></div>
+                  <div class="flex-1 bg-signalRed h-8"></div>
+                  <div class="flex-1 bg-ink group-hover:bg-paper h-4"></div>
+                </div>
+                <div class="flex justify-between text-neutralGrey text-[9px]">
+                  <span>ROWS: 850,000+</span>
+                  <span>GEOJSON EXTRACT</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-span-12 lg:col-span-1 flex lg:justify-end items-center font-mono text-sm">
+              <span class="project-arrow text-2xl font-light text-ink group-hover:text-signalRed transition-all duration-200 inline-block">
+                ↗
+              </span>
+            </div>
+
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- 04 — SKILLS & CAPABILITIES (NO PERCENTAGE BARS; STRICT MATRIX) -->
+    <section id="capabilities" class="border-b border-gridBorder max-w-[1720px] mx-auto px-4 sm:px-8 py-20 lg:py-24">
+
+      <div class="flex items-center justify-between font-mono text-xs text-neutralGrey pb-8 border-b border-gridBorder">
+        <div class="flex items-center gap-3">
+          <span class="text-signalRed font-bold">04</span>
+          <span class="text-ink uppercase font-semibold">/ TECHNICAL CAPABILITY MATRIX</span>
+        </div>
+        <div class="hidden sm:flex items-center gap-2">
+          <span>TAXONOMY V.26</span>
+          <span class="reg-mark opacity-40"></span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-12 gap-8 pt-12">
+
+        <!-- Category 1: AI & Data -->
+        <div class="col-span-12 md:col-span-4 border-l sm:border-l-0 md:border-r border-gridBorder pr-0 md:pr-8 space-y-6">
+          <div class="flex items-center justify-between border-b border-gridBorder pb-3">
+            <h3 class="font-mono text-xs uppercase tracking-widest text-ink font-bold flex items-center gap-2">
+              <span class="w-1.5 h-1.5 bg-signalRed"></span>
+              01 // AI &amp; DATA
+            </h3>
+            <span class="font-mono text-[10px] text-neutralGrey">CORE ENGINE</span>
+          </div>
+
+          <ul class="space-y-3 font-mono text-xs">
+            <li class="flex items-center justify-between py-2 border-b border-gridBorder/40 hover:text-signalRed transition-colors">
+              <span class="font-sans font-medium text-sm text-ink">Python</span>
+              <span class="text-neutralGrey text-[11px]">Primary Language</span>
+            </li>
+            <li class="flex items-center justify-between py-2 border-b border-gridBorder/40 hover:text-signalRed transition-colors">
+              <span class="font-sans font-medium text-sm text-ink">Machine Learning</span>
+              <span class="text-neutralGrey text-[11px]">Supervised / Unsupervised</span>
+            </li>
+            <li class="flex items-center justify-between py-2 border-b border-gridBorder/40 hover:text-signalRed transition-colors">
+              <span class="font-sans font-medium text-sm text-ink">Data Analysis</span>
+              <span class="text-neutralGrey text-[11px]">EDA &amp; Cleaning</span>
+            </li>
+            <li class="flex items-center justify-between py-2 border-b border-gridBorder/40 hover:text-signalRed transition-colors">
+              <span class="font-sans font-medium text-sm text-ink">Pandas</span>
+              <span class="text-neutralGrey text-[11px]">DataFrames</span>
+            </li>
+            <li class="flex items-center justify-between py-2 border-b border-gridBorder/40 hover:text-signalRed transition-colors">
+              <span class="font-sans font-medium text-sm text-ink">NumPy</span>
+              <span class="text-neutralGrey text-[11px]">Vector Math</span>
+            </li>
+            <li class="flex items-center justify-between py-2 border-b border-gridBorder/40 hover:text-signalRed transition-colors">
+              <span class="font-sans font-medium text-sm text-ink">Scikit-learn</span>
+              <span class="text-neutralGrey text-[11px]">Algorithms</span>
+            </li>
+            <li class="flex items-center justify-between py-2 border-b border-gridBorder/40 hover:text-signalRed transition-colors">
+              <span class="font-sans font-medium text-sm text-ink">SQL</span>
+              <span class="text-neutralGrey text-[11px]">Relational Queries</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Category 2: Web & Tools -->
+        <div class="col-span-12 md:col-span-4 border-l sm:border-l-0 md:border-r border-gridBorder pr-0 md:pr-8 space-y-6">
+          <div class="flex items-center justify-between border-b border-gridBorder pb-3">
+            <h3 class="font-mono text-xs uppercase tracking-widest text-ink font-bold flex items-center gap-2">
+              <span class="w-1.5 h-1.5 bg-ink"></span>
+              02 // WEB &amp; TOOLS
+            </h3>
+            <span class="font-mono text-[10px] text-neutralGrey">INTERFACE &amp; OPS</span>
+          </div>
+
+          <ul class="space-y-3 font-mono text-xs">
+            <li class="flex items-center justify-between py-2 border-b border-gridBorder/40 hover:text-signalRed transition-colors">
+              <span class="font-sans font-medium text-sm text-ink">HTML / Semantic Markup</span>
+              <span class="text-neutralGrey text-[11px]">Accessible Specs</span>
+            </li>
+            <li class="flex items-center justify-between py-2 border-b border-gridBorder/40 hover:text-signalRed transition-colors">
+              <span class="font-sans font-medium text-sm text-ink">CSS / Tailwind CSS</span>
+              <span class="text-neutralGrey text-[11px]">Grid &amp; Flexbox</span>
+            </li>
+            <li class="flex items-center justify-between py-2 border-b border-gridBorder/40 hover:text-signalRed transition-colors">
+              <span class="font-sans font-medium text-sm text-ink">Git &amp; GitHub</span>
+              <span class="text-neutralGrey text-[11px]">Version Control</span>
+            </li>
+            <li class="flex items-center justify-between py-2 border-b border-gridBorder/40 hover:text-signalRed transition-colors">
+              <span class="font-sans font-medium text-sm text-ink">Responsive Design</span>
+              <span class="text-neutralGrey text-[11px]">Multi-Device Layouts</span>
+            </li>
+            <li class="flex items-center justify-between py-2 border-b border-gridBorder/40 hover:text-signalRed transition-colors">
+              <span class="font-sans font-medium text-sm text-ink">Jupyter Notebooks</span>
+              <span class="text-neutralGrey text-[11px]">Scientific Compute</span>
+            </li>
+            <li class="flex items-center justify-between py-2 border-b border-gridBorder/40 hover:text-signalRed transition-colors">
+              <span class="font-sans font-medium text-sm text-ink">VS Code &amp; Linux CLI</span>
+              <span class="text-neutralGrey text-[11px]">Dev Environment</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Category 3: Currently Exploring -->
+        <div class="col-span-12 md:col-span-4 space-y-6">
+          <div class="flex items-center justify-between border-b border-gridBorder pb-3">
+            <h3 class="font-mono text-xs uppercase tracking-widest text-ink font-bold flex items-center gap-2">
+              <span class="w-1.5 h-1.5 bg-neutralGrey"></span>
+              03 // CURRENTLY EXPLORING
+            </h3>
+            <span class="font-mono text-[10px] text-signalRed">ACTIVE LAB</span>
+          </div>
+
+          <ul class="space-y-3 font-mono text-xs">
+            <li class="flex items-center justify-between py-2 border-b border-gridBorder/40 hover:text-signalRed transition-colors">
+              <span class="font-sans font-medium text-sm text-ink">Deep Learning</span>
+              <span class="text-signalRed text-[11px]">Neural Networks</span>
+            </li>
+            <li class="flex items-center justify-between py-2 border-b border-gridBorder/40 hover:text-signalRed transition-colors">
+              <span class="font-sans font-medium text-sm text-ink">Generative AI</span>
+              <span class="text-signalRed text-[11px]">Diffusion &amp; Latent Models</span>
+            </li>
+            <li class="flex items-center justify-between py-2 border-b border-gridBorder/40 hover:text-signalRed transition-colors">
+              <span class="font-sans font-medium text-sm text-ink">LLM Applications</span>
+              <span class="text-signalRed text-[11px]">RAG &amp; Embeddings</span>
+            </li>
+            <li class="flex items-center justify-between py-2 border-b border-gridBorder/40 hover:text-signalRed transition-colors">
+              <span class="font-sans font-medium text-sm text-ink">Model Deployment</span>
+              <span class="text-signalRed text-[11px]">FastAPI &amp; ONNX</span>
+            </li>
+            <li class="flex items-center justify-between py-2 border-b border-gridBorder/40 hover:text-signalRed transition-colors">
+              <span class="font-sans font-medium text-sm text-ink">Algorithmic Optimization</span>
+              <span class="text-signalRed text-[11px]">Evaluation Metrics</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- 05 — EDUCATION & JOURNEY (EDITORIAL TIMELINE) -->
+    <section id="education" class="border-b border-gridBorder max-w-[1720px] mx-auto px-4 sm:px-8 py-20 lg:py-24">
+
+      <div class="flex items-center justify-between font-mono text-xs text-neutralGrey pb-8 border-b border-gridBorder">
+        <div class="flex items-center gap-3">
+          <span class="text-signalRed font-bold">05</span>
+          <span class="text-ink uppercase font-semibold">/ EDUCATION &amp; ACADEMIC JOURNEY</span>
+        </div>
+        <div class="hidden sm:flex items-center gap-2">
+          <span>CHRONOLOGY: 2024 — PRESENT</span>
+          <span class="reg-mark opacity-40"></span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-12 gap-8 pt-12">
+
+        <!-- Left Statement (Span 4) -->
+        <div class="col-span-12 lg:col-span-4 space-y-4">
+          <h2 class="sub-editorial font-bold text-ink uppercase tracking-tight">
+            Curated Academic Path &amp; Technical Foundation
+          </h2>
+          <p class="font-sans text-sm text-neutralGrey leading-relaxed max-w-sm">
+            Treated as an evolutionary timeline of deliberate discipline, foundational problem-solving, and continuous theoretical exploration.
+          </p>
+        </div>
+
+        <!-- Timeline Entries (Span 8) -->
+        <div class="col-span-12 lg:col-span-8 space-y-12 lg:pl-8 border-l border-gridBorder">
+
+          <!-- Milestone 01 -->
+          <div class="relative pl-6 border-l-2 border-signalRed space-y-2">
+            <span class="absolute -left-[7px] top-1 w-3 h-3 bg-paper border-2 border-signalRed rounded-none"></span>
+            <div class="font-mono text-xs text-signalRed font-bold">2026 — PRESENT // ONGOING</div>
+            <h4 class="text-xl sm:text-2xl font-bold uppercase tracking-tight text-ink">
+              B.VOC in AI/ML &amp; Data Science
+            </h4>
+            <div class="font-mono text-xs text-neutralGrey uppercase">
+              Nexcore Institute of Technology
+            </div>
+            <p class="font-sans text-sm text-ink/80 leading-relaxed max-w-2xl pt-2">
+              Immersive degree curriculum focusing on advanced computational mathematics, statistical inference, applied machine learning architectures, and scalable data pipelines.
+            </p>
+          </div>
+
+          <!-- Milestone 02 -->
+          <div class="relative pl-6 border-l-2 border-gridBorder space-y-2">
+            <span class="absolute -left-[7px] top-1 w-3 h-3 bg-paper border-2 border-ink rounded-none"></span>
+            <div class="font-mono text-xs text-neutralGrey">2024 — 2026 // COMPLETED</div>
+            <h4 class="text-xl sm:text-2xl font-bold uppercase tracking-tight text-ink">
+              Higher Secondary Education
+            </h4>
+            <div class="font-mono text-xs text-neutralGrey uppercase">
+              Navneet Junior College
+            </div>
+            <p class="font-sans text-sm text-neutralGrey leading-relaxed max-w-2xl pt-2">
+              Rigorous scientific and analytical coursework covering advanced mathematics, physics, and logical reasoning paradigms.
+            </p>
+          </div>
+
+          <!-- Milestone 03 -->
+          <div class="relative pl-6 border-l-2 border-gridBorder space-y-2">
+            <span class="absolute -left-[7px] top-1 w-3 h-3 bg-paper border-2 border-gridBorder rounded-none"></span>
+            <div class="font-mono text-xs text-neutralGrey">EARLIER EDUCATION</div>
+            <h4 class="text-xl sm:text-2xl font-bold uppercase tracking-tight text-ink">
+              Secondary School Certificate (SSC)
+            </h4>
+            <div class="font-mono text-xs text-neutralGrey uppercase">
+              Safa High School
+            </div>
+            <p class="font-sans text-sm text-neutralGrey leading-relaxed max-w-2xl pt-2">
+              Fundamental academic formation establishing core discipline, qualitative inquiry, and foundational computer literacy.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- 06 — PERSONAL MANIFESTO (INVERTED BLACK SECTION) -->
+    <section class="bg-ink text-paper py-24 lg:py-36 border-b border-gridBorder relative overflow-hidden">
+
+      <!-- Faint editorial coordinates & background markers -->
+      <div class="absolute inset-0 pointer-events-none opacity-10 flex justify-between p-8 font-mono text-xs">
+        <div>SECTION_06 // MANIFESTO</div>
+        <div>AXIS: Z_INDEX_0</div>
+        <div>SYS_VAL: TRUTH_OVER_NOISE</div>
+      </div>
+
+      <div class="max-w-[1720px] mx-auto px-4 sm:px-8 relative z-10">
+
+        <!-- Header Tag -->
+        <div class="font-mono text-xs text-neutralGrey pb-8 border-b border-paper/15 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-signalRed font-bold">06</span>
+            <span class="text-paper uppercase font-semibold">/ PERSONAL MANIFESTO</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 bg-signalRed"></span>
+            <span class="text-paper text-[11px] tracking-widest uppercase">THE CORE CONVICTION</span>
+          </div>
+        </div>
+
+        <!-- Oversized Statement -->
+        <div class="py-12 lg:py-20">
+          <h2 class="statement-title font-black uppercase text-paper tracking-tighter leading-tight max-w-6xl">
+            Good technology doesn’t just process information.<br>
+            <span class="text-neutralGrey">It creates clarity.</span>
+          </h2>
+        </div>
+
+        <!-- Narrative & Kinetic Red Marker -->
+        <div class="grid grid-cols-12 gap-8 border-t border-paper/15 pt-10 font-sans">
+
+          <div class="col-span-12 md:col-span-6 lg:col-span-5 font-mono text-xs text-neutralGrey space-y-3">
+            <p class="uppercase text-paper font-semibold">// INTELLECTUAL COMMITMENT</p>
+            <p class="leading-relaxed">
+              In an era overwhelmed by stochastic parrot models and noise-filled hype cycles, real engineering requires radical discernment, mathematical integrity, and reproducible code.
+            </p>
+          </div>
+
+          <div class="col-span-12 md:col-span-6 lg:col-span-7 text-paper/85 text-base sm:text-lg leading-relaxed space-y-4">
+            <p>
+              My path is defined by deliberate curiosity, disciplined learning, and hands-on experimentation. Rather than passively observing the transformation brought by artificial intelligence, I am committed to building the foundational data pipelines and algorithmic systems that make machine learning accountable, humane, and impactful.
+            </p>
+            <p class="text-neutralGrey text-sm sm:text-base">
+              Growing from a student of data into a professional AI engineer means mastering the delicate balance between theoretical depth and relentless practical execution.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- 07 — CONTACT & ENGAGEMENT (BOLD EDITORIAL CONCLUSION) -->
+    <section id="contact" class="max-w-[1720px] mx-auto px-4 sm:px-8 py-20 lg:py-32">
+
+      <div class="flex items-center justify-between font-mono text-xs text-neutralGrey pb-8 border-b border-gridBorder">
+        <div class="flex items-center gap-3">
+          <span class="text-signalRed font-bold">07</span>
+          <span class="text-ink uppercase font-semibold">/ INQUIRIES &amp; COLLABORATION</span>
+        </div>
+        <div class="hidden sm:flex items-center gap-2">
+          <span>RESPONSIVE WITHIN 24 HOURS</span>
+          <span class="reg-mark opacity-40"></span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-12 gap-8 pt-12 lg:pt-16">
+
+        <!-- Large Provocative Invitation (Span 7) -->
+        <div class="col-span-12 lg:col-span-7">
+          <h2 class="statement-title font-extrabold uppercase text-ink tracking-tight">
+            Let’s build<br>
+            something<br>
+            <span class="inline-flex items-center gap-4 text-ink">
+              intelligent
+              <span class="text-signalRed">.</span>
+            </span>
+          </h2>
+
+          <div class="pt-8">
+            <p class="font-sans text-lg sm:text-xl text-neutralGrey font-normal max-w-xl">
+              Open to technical internships, applied research collaborations, open-source initiatives, and ambitious engineering roles.
+            </p>
+          </div>
+        </div>
+
+        <!-- Editorial Contact Directory (Span 5) -->
+        <div class="col-span-12 lg:col-span-5 flex flex-col justify-between font-mono text-xs space-y-8 lg:pl-8 lg:border-l border-gridBorder">
+
+          <div class="space-y-6">
+            <span class="text-neutralGrey text-[10px] tracking-widest block uppercase">// DIRECT COMMUNICATION CHANNELS</span>
+
+            <!-- Large Text-based Email Direct Action -->
+            <div class="border-b border-gridBorder pb-4">
+              <span class="text-neutralGrey text-[10px] block mb-1">EMAIL CONTACT</span>
+              <a href="mailto:alimapari.work@gmail.com" class="font-sans text-xl sm:text-2xl lg:text-3xl font-bold text-ink hover:text-signalRed transition-colors break-all flex items-center justify-between group">
+                <span>alimapari.work@gmail.com</span>
+                <span class="text-signalRed opacity-0 group-hover:opacity-100 transition-opacity font-mono text-lg">↗</span>
+              </a>
+            </div>
+
+            <!-- LinkedIn -->
+            <div class="border-b border-gridBorder pb-4 flex items-center justify-between">
+              <div>
+                <span class="text-neutralGrey text-[10px] block">PROFESSIONAL NETWORK</span>
+                <a href="https://linkedin.com/in/ali-mapari" target="_blank" rel="noopener noreferrer" class="font-sans text-base font-semibold text-ink hover:text-signalRed transition-colors">
+                  linkedin.com/in/ali-mapari
+                </a>
+              </div>
+              <span class="text-neutralGrey">↗</span>
+            </div>
+
+            <!-- GitHub -->
+            <div class="border-b border-gridBorder pb-4 flex items-center justify-between">
+              <div>
+                <span class="text-neutralGrey text-[10px] block">CODE REPOSITORY</span>
+                <a href="https://github.com/alimapari" target="_blank" rel="noopener noreferrer" class="font-sans text-base font-semibold text-ink hover:text-signalRed transition-colors">
+                  github.com/alimapari
+                </a>
+              </div>
+              <span class="text-neutralGrey">↗</span>
+            </div>
+
+            <!-- Geographical Base -->
+            <div class="border-b border-gridBorder pb-4 flex items-center justify-between">
+              <div>
+                <span class="text-neutralGrey text-[10px] block">GEOGRAPHICAL REGION</span>
+                <span class="font-sans text-base font-semibold text-ink">
+                  Mumbai, Maharashtra, India
+                </span>
+              </div>
+              <span class="text-signalRed font-bold font-mono">IST (UTC+5:30)</span>
+            </div>
+          </div>
+
+          <!-- Status indicator card -->
+          <div class="p-4 bg-paper border border-gridBorder text-[11px] leading-relaxed">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="w-2 h-2 rounded-full bg-signalRed animate-signal"></span>
+              <strong class="text-ink uppercase">Availability Notice</strong>
+            </div>
+            <p class="text-neutralGrey font-sans">
+              Currently accepting inquiries for Summer &amp; Fall 2026 technical internships and collaborative data projects.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- FOOTER: COLOPHON & MINIMAL CREDITS -->
+    <footer class="border-t border-gridBorder bg-paper text-ink max-w-[1720px] mx-auto px-4 sm:px-8 py-8">
+      <div class="grid grid-cols-12 gap-4 items-center font-mono text-xs">
+
+        <div class="col-span-12 sm:col-span-4 text-neutralGrey">
+          ALI MAPARI © 2026 — ALL RIGHTS RESERVED
+        </div>
+
+        <div class="col-span-12 sm:col-span-5 text-neutralGrey text-left sm:text-center text-[11px]">
+          DESIGNED WITH STRUCTURE, CURIOSITY &amp; CODE
+        </div>
+
+        <div class="col-span-12 sm:col-span-3 flex justify-start sm:justify-end">
+          <a href="#" class="hover:text-signalRed transition-colors flex items-center gap-1 font-semibold">
+            <span>BACK TO TOP</span>
+            <span class="text-signalRed">↑</span>
+          </a>
+        </div>
+
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Interactive Scroll Progress & Coordinates Tracker -->
+  <script>
+    // Minimal scroll progress calculation
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      const bar = document.getElementById('scroll-progress');
+      if (bar) {
+        bar.style.width = scrolled + '%';
+      }
+    });
+
+    // Keyboard accessibility for smooth jump
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ali Mapari — AI Engineer &amp; Data Science Student | Living Intelligence</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Compiled Tailwind CSS v4 Stylesheet -->
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body class="bg-bgDark text-textPrimary font-sans antialiased selection:bg-cyanElectric/30 selection:text-white overflow-x-hidden relative">
+<!-- Custom Cinematic Interactive Cursor (Desktop) -->
+<div class="cursor-dot fixed top-0 left-0 w-2 h-2 rounded-full bg-cyanElectric z-50 -translate-x-1/2 -translate-y-1/2 hidden md:block" id="custom-cursor-dot"></div>
+<div class="cursor-ring fixed top-0 left-0 w-10 h-10 rounded-full border border-cyanElectric/40 z-50 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center justify-center text-[8px] font-mono tracking-widest text-cyanElectric" id="custom-cursor-ring"></div>
+<!-- PERSISTENT IMMERSIVE 3D WEBGL CORE SCENE (FIXED CANVAS) -->
+<div class="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+<!-- STITCH_THREEJS_START:ANIMATION_2 class="absolute inset-0 w-full h-full bg-transparent" -->
+<div class="absolute inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_2" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_2');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // Three.js interactive scene for "The Living Intelligence Core"
+// Features: Dynamic morphing neural particle field, iridescent liquid wireframe core, reactive mouse physics, and scroll/hover responsive states
+
+const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x050609, 0.035);
+
+const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 1000);
+camera.position.set(0, 0, 14);
+
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.25;
+container.appendChild(renderer.domElement);
+
+// Custom Group
+const masterGroup = new THREE.Group();
+scene.add(masterGroup);
+
+// --- 1. NEURAL PARTICLE CLOUD ---
+const particleCount = 2800;
+const particleGeo = new THREE.BufferGeometry();
+const positions = new Float32Array(particleCount * 3);
+const originalPositions = new Float32Array(particleCount * 3);
+const particleColors = new Float32Array(particleCount * 3);
+const scales = new Float32Array(particleCount);
+
+const colorCyan = new THREE.Color(0x52E8FF);
+const colorViolet = new THREE.Color(0x8067FF);
+const colorBlue = new THREE.Color(0x4B8DFF);
+
+for (let i = 0; i < particleCount; i++) {
+  // Spherical distribution with clustering
+  const radius = 3.5 + Math.random() * 4.8;
+  const theta = Math.random() * Math.PI * 2;
+  const phi = Math.acos(2 * Math.random() - 1);
+
+  const x = radius * Math.sin(phi) * Math.cos(theta);
+  const y = radius * Math.sin(phi) * Math.sin(theta);
+  const z = radius * Math.cos(phi);
+
+  positions[i * 3] = x;
+  positions[i * 3 + 1] = y;
+  positions[i * 3 + 2] = z;
+
+  originalPositions[i * 3] = x;
+  originalPositions[i * 3 + 1] = y;
+  originalPositions[i * 3 + 2] = z;
+
+  const mixedColor = Math.random() > 0.5 ? colorCyan.clone().lerp(colorViolet, Math.random()) : colorViolet.clone().lerp(colorBlue, Math.random());
+  particleColors[i * 3] = mixedColor.r;
+  particleColors[i * 3 + 1] = mixedColor.g;
+  particleColors[i * 3 + 2] = mixedColor.b;
+
+  scales[i] = Math.random() * 1.8 + 0.8;
+}
+
+particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+particleGeo.setAttribute('color', new THREE.BufferAttribute(particleColors, 3));
+particleGeo.setAttribute('scale', new THREE.BufferAttribute(scales, 1));
+
+// Custom Shader for glowing soft particles
+const particleVertex = `
+  attribute float scale;
+  varying vec3 vColor;
+  void main() {
+    vColor = color;
+    vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+    gl_PointSize = scale * (220.0 / -mvPosition.z);
+    gl_Position = projectionMatrix * mvPosition;
+  }
+`;
+
+const particleFragment = `
+  varying vec3 vColor;
+  void main() {
+    float dist = length(gl_PointCoord - vec2(0.5));
+    if (dist > 0.5) discard;
+    float alpha = smoothstep(0.5, 0.05, dist) * 0.85;
+    gl_FragColor = vec4(vColor, alpha);
+  }
+`;
+
+const particleMat = new THREE.ShaderMaterial({
+  vertexShader: particleVertex,
+  fragmentShader: particleFragment,
+  transparent: true,
+  vertexColors: true,
+  blending: THREE.AdditiveBlending,
+  depthWrite: false
+});
+
+const particleSystem = new THREE.Points(particleGeo, particleMat);
+masterGroup.add(particleSystem);
+
+// --- 2. INNER LIQUID INTELLIGENCE SPHERE / TOROIDAL CORE ---
+const coreGeo = new THREE.IcosahedronGeometry(2.8, 4);
+const coreWireGeo = new THREE.IcosahedronGeometry(2.84, 2);
+
+const coreMaterial = new THREE.MeshPhongMaterial({
+  color: 0x091024,
+  emissive: 0x16134a,
+  specular: 0x52E8FF,
+  shininess: 90,
+  wireframe: false,
+  transparent: true,
+  opacity: 0.82
+});
+
+const wireMaterial = new THREE.MeshBasicMaterial({
+  color: 0x52E8FF,
+  wireframe: true,
+  transparent: true,
+  opacity: 0.35,
+  blending: THREE.AdditiveBlending
+});
+
+const coreMesh = new THREE.Mesh(coreGeo, coreMaterial);
+const wireMesh = new THREE.Mesh(coreWireGeo, wireMaterial);
+masterGroup.add(coreMesh);
+masterGroup.add(wireMesh);
+
+// --- 3. SYNAPTIC ENERGY RING (NEURAL RINGS) ---
+const ringGeo = new THREE.TorusGeometry(4.4, 0.025, 16, 120);
+const ringMat = new THREE.MeshBasicMaterial({
+  color: 0x8067FF,
+  transparent: true,
+  opacity: 0.5,
+  blending: THREE.AdditiveBlending
+});
+const ring1 = new THREE.Mesh(ringGeo, ringMat);
+ring1.rotation.x = Math.PI / 3;
+masterGroup.add(ring1);
+
+const ring2 = ring1.clone();
+ring2.rotation.y = Math.PI / 2.5;
+ring2.material = new THREE.MeshBasicMaterial({
+  color: 0x52E8FF,
+  transparent: true,
+  opacity: 0.45,
+  blending: THREE.AdditiveBlending
+});
+masterGroup.add(ring2);
+
+// --- 4. LIGHTING ---
+const ambientLight = new THREE.AmbientLight(0x101735, 1.8);
+scene.add(ambientLight);
+
+const pointLightCyan = new THREE.PointLight(0x52E8FF, 3.5, 30);
+pointLightCyan.position.set(6, 6, 8);
+scene.add(pointLightCyan);
+
+const pointLightViolet = new THREE.PointLight(0x8067FF, 4.0, 30);
+pointLightViolet.position.set(-7, -5, 6);
+scene.add(pointLightViolet);
+
+// --- INTERACTIVE MOUSE & SCROLL STATE ---
+const mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
+let scrollY = 0;
+let targetScrollY = 0;
+
+window.addEventListener('mousemove', (e) => {
+  mouse.targetX = (e.clientX / window.innerWidth) * 2 - 1;
+  mouse.targetY = -(e.clientY / window.innerHeight) * 2 + 1;
+});
+
+window.addEventListener('scroll', () => {
+  targetScrollY = window.scrollY || document.documentElement.scrollTop;
+});
+
+// Custom event dispatch for project card interaction
+window.addEventListener('project-focus', (e) => {
+  const mode = e.detail?.mode || 'default';
+  if (mode === 'neural') {
+    wireMaterial.color.setHex(0x52E8FF);
+    wireMaterial.opacity = 0.8;
+    pointLightCyan.intensity = 6.0;
+  } else if (mode === 'vision') {
+    wireMaterial.color.setHex(0x8067FF);
+    wireMaterial.opacity = 0.85;
+    pointLightViolet.intensity = 6.5;
+  } else if (mode === 'analytics') {
+    wireMaterial.color.setHex(0x4B8DFF);
+    wireMaterial.opacity = 0.8;
+  } else {
+    wireMaterial.color.setHex(0x52E8FF);
+    wireMaterial.opacity = 0.35;
+    pointLightCyan.intensity = 3.5;
+    pointLightViolet.intensity = 4.0;
+  }
+});
+
+// Resize handler
+const handleResize = () => {
+  const w = container.clientWidth || window.innerWidth;
+  const h = container.clientHeight || window.innerHeight;
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+};
+window.addEventListener('resize', handleResize);
+
+// Clock & Animation Loop
+const clock = new THREE.Clock();
+const posAttr = particleGeo.attributes.position;
+const corePos = coreGeo.attributes.position;
+const baseCoreVertices = corePos.array.slice();
+
+function animate() {
+  requestAnimationFrame(animate);
+  const elapsedTime = clock.getElapsedTime();
+
+  // Smooth mouse interpolation
+  mouse.x += (mouse.targetX - mouse.x) * 0.05;
+  mouse.y += (mouse.targetY - mouse.y) * 0.05;
+
+  // Smooth scroll sync
+  scrollY += (targetScrollY - scrollY) * 0.08;
+  const maxScroll = Math.max(document.body.scrollHeight - window.innerHeight, 1000);
+  const scrollRatio = scrollY / maxScroll;
+
+  // Master rotation & position sync with scroll
+  masterGroup.rotation.y = elapsedTime * 0.18 + mouse.x * 0.45;
+  masterGroup.rotation.x = Math.sin(elapsedTime * 0.12) * 0.15 + mouse.y * 0.35;
+
+  // Parallax translation based on page depth:
+  // Hero (center-right) -> Projects (shifts left to frame panel) -> Expertise (rises and expands) -> Finale (converges)
+  const targetX = (1.5 - scrollRatio * 3.5) + (mouse.x * 0.6);
+  const targetY = -scrollRatio * 2.2 + (mouse.y * 0.5);
+  const targetZ = Math.sin(scrollRatio * Math.PI) * 2.0;
+
+  masterGroup.position.x += (targetX - masterGroup.position.x) * 0.05;
+  masterGroup.position.y += (targetY - masterGroup.position.y) * 0.05;
+  masterGroup.position.z += (targetZ - masterGroup.position.z) * 0.05;
+
+  // Rings dynamic precession
+  ring1.rotation.z += 0.005;
+  ring2.rotation.x += 0.004;
+
+  // Dynamic deformation of the Liquid Core
+  for (let i = 0; i < corePos.count; i++) {
+    const u = i * 3;
+    const ox = baseCoreVertices[u];
+    const oy = baseCoreVertices[u + 1];
+    const oz = baseCoreVertices[u + 2];
+
+    const wave = Math.sin(elapsedTime * 2.2 + ox * 1.5 + oy * 1.2) * 0.22;
+    corePos.array[u] = ox * (1 + wave * 0.45);
+    corePos.array[u + 1] = oy * (1 + wave * 0.45);
+    corePos.array[u + 2] = oz * (1 + wave * 0.45);
+  }
+  corePos.needsUpdate = true;
+
+  // Particle organic breathing & cursor proximity wave
+  const positionsArr = posAttr.array;
+  for (let i = 0; i < particleCount; i++) {
+    const idx = i * 3;
+    const origX = originalPositions[idx];
+    const origY = originalPositions[idx + 1];
+    const origZ = originalPositions[idx + 2];
+
+    const pulse = 1.0 + Math.sin(elapsedTime * 1.4 + origX * 0.8 + origY * 0.5) * 0.08;
+    positionsArr[idx] = origX * pulse;
+    positionsArr[idx + 1] = origY * pulse;
+    positionsArr[idx + 2] = origZ * pulse;
+  }
+  posAttr.needsUpdate = true;
+
+  renderer.render(scene, camera);
+}
+
+animate();
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_2 -->
+<!-- Cinematic Vignette & Atmospheric Overlay -->
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#050609_85%)] pointer-events-none"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-bgDark/20 to-bgDark pointer-events-none"></div>
+</div>
+<!-- CINEMATIC LOADING SEQUENCE (1.5s Auto-Dissolve) -->
+<div class="fixed inset-0 z-50 bg-[#050609] flex flex-col items-center justify-center transition-opacity duration-700 pointer-events-auto" id="loader">
+<div class="relative flex flex-col items-center">
+<!-- Pulsing Neural Ring -->
+<div class="relative w-20 h-20 mb-6 flex items-center justify-center">
+<div class="absolute inset-0 rounded-full border-t border-cyanElectric animate-spin"></div>
+<div class="absolute inset-2 rounded-full border-b border-violetAura animate-spin" style="animation-direction: reverse; animation-duration: 2s;"></div>
+<span class="font-mono text-xs font-semibold text-cyanElectric tracking-wider" id="loader-percent">0%</span>
+</div>
+<div class="flex items-center space-x-3">
+<span class="w-2 h-2 rounded-full bg-cyanElectric animate-ping"></span>
+<p class="font-mono text-xs uppercase tracking-[0.25em] text-textSecondary">INITIALIZING INTELLIGENCE CORE</p>
+</div>
+<div class="w-48 h-[2px] bg-white/10 rounded-full mt-4 overflow-hidden">
+<div class="h-full bg-gradient-to-r from-cyanElectric to-violetAura w-0 transition-all duration-300" id="loader-bar"></div>
+</div>
+</div>
+</div>
+<!-- FLOATING CINEMATIC NAVIGATION -->
+<header class="fixed top-0 left-0 w-full z-40 px-6 md:px-12 py-5 transition-all duration-300 flex items-center justify-between" id="navbar">
+<a class="group flex items-center space-x-3 cursor-pointer" href="#">
+<div class="w-9 h-9 rounded-lg bg-elevatedDark/80 border border-white/10 flex items-center justify-center font-display font-bold text-sm tracking-tighter text-cyanElectric group-hover:border-cyanElectric/50 transition-colors shadow-lg shadow-cyanElectric/5">
+        AM.
+      </div>
+<div class="flex flex-col">
+<span class="font-display font-bold text-sm tracking-wide text-white group-hover:text-cyanElectric transition-colors">ALI MAPARI</span>
+<span class="font-mono text-[10px] text-textSecondary tracking-wider">AI ENGINEER &amp; DATA SCIENTIST</span>
+</div>
+</a>
+<!-- Nav Links (Desktop) -->
+<nav class="hidden md:flex items-center space-x-8 px-6 py-2.5 rounded-full glass-card border-white/10 shadow-2xl">
+<a class="font-mono text-xs tracking-wider text-textSecondary hover:text-cyanElectric transition-colors flex items-center gap-1.5 cursor-pointer" href="#work">
+<span class="text-[10px] text-cyanElectric/60">01</span> WORK
+      </a>
+<a class="font-mono text-xs tracking-wider text-textSecondary hover:text-cyanElectric transition-colors flex items-center gap-1.5 cursor-pointer" href="#about">
+<span class="text-[10px] text-cyanElectric/60">02</span> ABOUT
+      </a>
+<a class="font-mono text-xs tracking-wider text-textSecondary hover:text-cyanElectric transition-colors flex items-center gap-1.5 cursor-pointer" href="#expertise">
+<span class="text-[10px] text-cyanElectric/60">03</span> EXPERTISE
+      </a>
+<a class="font-mono text-xs tracking-wider text-textSecondary hover:text-cyanElectric transition-colors flex items-center gap-1.5 cursor-pointer" href="#contact">
+<span class="text-[10px] text-cyanElectric/60">04</span> CONTACT
+      </a>
+</nav>
+<!-- Status Badge -->
+<div class="flex items-center space-x-4">
+<div class="hidden lg:flex items-center space-x-2 px-3 py-1.5 rounded-full bg-cyanElectric/10 border border-cyanElectric/20">
+<span class="w-2 h-2 rounded-full bg-cyanElectric animate-pulse"></span>
+<span class="font-mono text-[11px] text-cyanElectric font-medium tracking-wide">AVAILABLE FOR COLLABORATION</span>
+</div>
+<a class="px-4 py-2 rounded-lg bg-white/5 hover:bg-cyanElectric/20 border border-white/10 hover:border-cyanElectric/40 text-xs font-mono tracking-wider transition-all duration-300" href="#contact">
+        GET IN TOUCH ↗
+      </a>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT LAYERS -->
+<main class="relative z-10 w-full flex flex-col">
+<!-- 01 — HERO SECTION -->
+<section class="min-h-screen w-full flex flex-col justify-between px-6 md:px-12 pt-32 pb-12" id="hero">
+<!-- Top Meta Coordinates -->
+<div class="flex items-center justify-between border-b border-white/10 pb-4">
+<div class="flex items-center space-x-3">
+<span class="font-mono text-[11px] text-cyanElectric tracking-widest uppercase">LAT 19.0760° N, LON 72.8777° E</span>
+<span class="text-white/20">/</span>
+<span class="font-mono text-[11px] text-textSecondary">MUMBAI, INDIA</span>
+</div>
+<div class="font-mono text-[11px] text-textSecondary flex items-center gap-2">
+<span>SYSTEM_STATE:</span>
+<span class="text-emerald-400 font-semibold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> ONLINE</span>
+</div>
+</div>
+<!-- Center Typography Composition -->
+<div class="my-auto max-w-5xl py-8">
+<div class="inline-flex items-center space-x-2 px-3 py-1 rounded border border-cyanElectric/30 bg-cyanElectric/5 mb-6">
+<span class="w-1.5 h-1.5 rounded-full bg-cyanElectric"></span>
+<span class="font-mono text-xs uppercase tracking-widest text-cyanElectric">AI ENGINEERING × DATA SCIENCE</span>
+</div>
+<h1 class="font-display font-bold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] text-white">
+          I BUILD <br/>
+<span class="gradient-text-glow">INTELLIGENT</span> <br/>
+          DIGITAL SYSTEMS.
+        </h1>
+<p class="mt-8 text-base sm:text-lg md:text-xl text-textSecondary max-w-2xl font-light leading-relaxed">
+          I’m <span class="text-white font-medium">Ali Mapari</span> — an aspiring AI engineer exploring machine learning, computational data science, and responsive human-centred intelligence.
+        </p>
+<!-- CTA Buttons -->
+<div class="mt-10 flex flex-wrap items-center gap-4">
+<a class="px-7 py-3.5 rounded-xl bg-cyanElectric text-bgDark font-display font-semibold text-sm tracking-wide hover:bg-white hover:shadow-[0_0_25px_rgba(82,232,255,0.6)] transition-all duration-300 flex items-center gap-2 cursor-pointer" href="#work">
+<span>EXPLORE MY WORK</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+<a class="px-7 py-3.5 rounded-xl glass-card text-white font-display font-medium text-sm tracking-wide hover:border-cyanElectric/40 transition-all duration-300 flex items-center gap-2 cursor-pointer" href="#about">
+<span>VIEW RÉSUMÉ</span>
+<svg class="w-4 h-4 text-cyanElectric" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</div>
+<!-- Bottom Hero HUD -->
+<div class="flex flex-col md:flex-row items-start md:items-end justify-between border-t border-white/10 pt-6 gap-4">
+<div class="flex items-center space-x-8">
+<div>
+<div class="font-mono text-[10px] text-textSecondary uppercase tracking-widest">DISCIPLINE</div>
+<div class="font-display font-medium text-sm text-white mt-0.5">Machine Learning &amp; Data Modeling</div>
+</div>
+<div>
+<div class="font-mono text-[10px] text-textSecondary uppercase tracking-widest">DEGREE PATH</div>
+<div class="font-display font-medium text-sm text-white mt-0.5">B.Voc AI/ML (Nexcore)</div>
+</div>
+<div class="hidden sm:block">
+<div class="font-mono text-[10px] text-textSecondary uppercase tracking-widest">CORE RATIO</div>
+<div class="font-mono text-sm text-cyanElectric mt-0.5">2,800 Synaptic Nodes</div>
+</div>
+</div>
+<div class="flex items-center space-x-3 text-textSecondary font-mono text-xs animate-bounce">
+<span>SCROLL TO ENTER</span>
+<svg class="w-4 h-4 text-cyanElectric" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+</section>
+<!-- 02 — SELECTED PROJECTS -->
+<section class="min-h-screen w-full px-6 md:px-12 py-24 border-t border-white/10" id="work">
+<div class="max-w-7xl mx-auto">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div>
+<div class="flex items-center space-x-2 text-cyanElectric font-mono text-xs tracking-widest uppercase mb-3">
+<span>// 02. PORTFOLIO MATRIX</span>
+</div>
+<h2 class="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight">
+              SELECTED EXPERIMENTS.
+            </h2>
+</div>
+<p class="text-textSecondary max-w-md font-light text-sm sm:text-base">
+            Ideas transformed into intelligent systems — spanning natural language processing, predictive telemetry, computer vision, and geospatial analysis.
+          </p>
+</div>
+<!-- Interactive Horizontal Project Panels -->
+<div class="space-y-6">
+<!-- Project 01 -->
+<div class="project-panel group glass-card rounded-2xl p-6 md:p-8 transition-all duration-500 cursor-pointer" data-core-mode="neural">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+<div class="lg:col-span-1 font-mono text-cyanElectric/70 text-sm font-semibold tracking-wider">
+                01/
+              </div>
+<div class="lg:col-span-4">
+<div class="font-mono text-[11px] text-violetAura tracking-wider uppercase mb-1">NLP &amp; Clinical Telemetry</div>
+<h3 class="font-display font-bold text-2xl sm:text-3xl text-white group-hover:text-cyanElectric transition-colors">
+                  LexiCore Sentiment Engine
+                </h3>
+<p class="text-textSecondary text-sm mt-2 font-light">
+                  End-to-end NLP classifier evaluating multi-lingual consumer feedback datasets with high recall and automated report generation.
+                </p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 font-mono text-[11px] text-textSecondary">Python</span>
+<span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 font-mono text-[11px] text-textSecondary">Scikit-Learn</span>
+<span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 font-mono text-[11px] text-textSecondary">NLTK</span>
+<span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 font-mono text-[11px] text-textSecondary">FastAPI</span>
+</div>
+</div>
+<!-- Abstract Generative Telemetry Visual -->
+<div class="lg:col-span-5 rounded-xl bg-bgDark/80 border border-white/10 p-4 font-mono text-xs">
+<div class="flex items-center justify-between text-[11px] text-textSecondary border-b border-white/10 pb-2 mb-3">
+<span>CONFUSION_MATRIX_V1.9</span>
+<span class="text-cyanElectric font-semibold">F1: 0.92</span>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-[10px] text-textSecondary">PRECISION: POSITIVE</span>
+<div class="w-44 bg-white/5 h-2 rounded-full overflow-hidden">
+<div class="bg-cyanElectric h-full w-[92%] transition-all duration-700 group-hover:w-[96%]"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-[10px] text-textSecondary">RECALL: NEUTRAL</span>
+<div class="w-44 bg-white/5 h-2 rounded-full overflow-hidden">
+<div class="bg-violetAura h-full w-[88%]"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-[10px] text-textSecondary">INFERENCE LATENCY</span>
+<span class="text-white font-mono">18ms / sample</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-2 flex lg:justify-end items-center">
+<button class="w-12 h-12 rounded-full border border-white/20 group-hover:border-cyanElectric group-hover:bg-cyanElectric group-hover:text-bgDark flex items-center justify-center transition-all duration-300">
+<svg class="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+<!-- Project 02 -->
+<div class="project-panel group glass-card rounded-2xl p-6 md:p-8 transition-all duration-500 cursor-pointer" data-core-mode="analytics">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+<div class="lg:col-span-1 font-mono text-cyanElectric/70 text-sm font-semibold tracking-wider">
+                02/
+              </div>
+<div class="lg:col-span-4">
+<div class="font-mono text-[11px] text-blueSoft tracking-wider uppercase mb-1">Predictive Machine Learning</div>
+<h3 class="font-display font-bold text-2xl sm:text-3xl text-white group-hover:text-cyanElectric transition-colors">
+                  CardioRisk Predictor
+                </h3>
+<p class="text-textSecondary text-sm mt-2 font-light">
+                  Supervised classification model evaluating clinical patient features to forecast cardiovascular risk with SHAP explainability.
+                </p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 font-mono text-[11px] text-textSecondary">RandomForest</span>
+<span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 font-mono text-[11px] text-textSecondary">SHAP</span>
+<span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 font-mono text-[11px] text-textSecondary">Pandas</span>
+<span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 font-mono text-[11px] text-textSecondary">Seaborn</span>
+</div>
+</div>
+<!-- Abstract Generative Telemetry Visual -->
+<div class="lg:col-span-5 rounded-xl bg-bgDark/80 border border-white/10 p-4 font-mono text-xs">
+<div class="flex items-center justify-between text-[11px] text-textSecondary border-b border-white/10 pb-2 mb-3">
+<span>ROC_AUC_METRICS</span>
+<span class="text-blueSoft font-semibold">SCORE: 0.884</span>
+</div>
+<div class="h-16 flex items-end gap-1.5 pt-2">
+<div class="flex-1 bg-white/10 h-[30%] group-hover:h-[45%] transition-all"></div>
+<div class="flex-1 bg-white/10 h-[50%] group-hover:h-[65%] transition-all"></div>
+<div class="flex-1 bg-blueSoft h-[78%] group-hover:h-[88%] transition-all"></div>
+<div class="flex-1 bg-cyanElectric h-[92%] group-hover:h-[95%] transition-all"></div>
+<div class="flex-1 bg-violetAura h-[60%] group-hover:h-[70%] transition-all"></div>
+<div class="flex-1 bg-white/20 h-[40%] group-hover:h-[55%] transition-all"></div>
+</div>
+<div class="flex justify-between text-[9px] text-textSecondary mt-2">
+<span>AGE/BMI</span>
+<span>SERUM_CHOL</span>
+<span>REST_ECG</span>
+<span>THAL</span>
+</div>
+</div>
+<div class="lg:col-span-2 flex lg:justify-end items-center">
+<button class="w-12 h-12 rounded-full border border-white/20 group-hover:border-cyanElectric group-hover:bg-cyanElectric group-hover:text-bgDark flex items-center justify-center transition-all duration-300">
+<svg class="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+<!-- Project 03 -->
+<div class="project-panel group glass-card rounded-2xl p-6 md:p-8 transition-all duration-500 cursor-pointer" data-core-mode="vision">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+<div class="lg:col-span-1 font-mono text-cyanElectric/70 text-sm font-semibold tracking-wider">
+                03/
+              </div>
+<div class="lg:col-span-4">
+<div class="font-mono text-[11px] text-cyanElectric tracking-wider uppercase mb-1">Computer Vision &amp; Neural Embeddings</div>
+<h3 class="font-display font-bold text-2xl sm:text-3xl text-white group-hover:text-cyanElectric transition-colors">
+                  SpatialTrack Optical Matrix
+                </h3>
+<p class="text-textSecondary text-sm mt-2 font-light">
+                  Real-time geometric contouring and landmark localization pipeline optimized for low-compute embedded edge camera streams.
+                </p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 font-mono text-[11px] text-textSecondary">OpenCV</span>
+<span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 font-mono text-[11px] text-textSecondary">NumPy</span>
+<span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 font-mono text-[11px] text-textSecondary">Edge_AI</span>
+<span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 font-mono text-[11px] text-textSecondary">MediaPipe</span>
+</div>
+</div>
+<!-- Abstract Generative Telemetry Visual -->
+<div class="lg:col-span-5 rounded-xl bg-bgDark/80 border border-white/10 p-4 font-mono text-xs">
+<div class="flex items-center justify-between text-[11px] text-textSecondary border-b border-white/10 pb-2 mb-3">
+<span>EDGE_KERNEL_5x5</span>
+<span class="text-emerald-400 font-semibold">FPS: 60 (CUDA)</span>
+</div>
+<div class="grid grid-cols-5 gap-1 text-center font-mono text-[10px]">
+<div class="p-1 bg-white/5 rounded text-textSecondary">-1</div>
+<div class="p-1 bg-white/5 rounded text-textSecondary">-1</div>
+<div class="p-1 bg-cyanElectric/20 text-cyanElectric rounded">-1</div>
+<div class="p-1 bg-white/5 rounded text-textSecondary">-1</div>
+<div class="p-1 bg-white/5 rounded text-textSecondary">-1</div>
+<div class="p-1 bg-white/5 rounded text-textSecondary">-1</div>
+<div class="p-1 bg-violetAura/20 text-violetAura rounded">2</div>
+<div class="p-1 bg-violetAura/40 text-violetAura font-bold rounded">4</div>
+<div class="p-1 bg-violetAura/20 text-violetAura rounded">2</div>
+<div class="p-1 bg-white/5 rounded text-textSecondary">-1</div>
+<div class="p-1 bg-cyanElectric/20 text-cyanElectric rounded">-1</div>
+<div class="p-1 bg-violetAura/40 text-violetAura font-bold rounded">4</div>
+<div class="p-1 bg-cyanElectric text-bgDark font-bold rounded">16</div>
+<div class="p-1 bg-violetAura/40 text-violetAura font-bold rounded">4</div>
+<div class="p-1 bg-cyanElectric/20 text-cyanElectric rounded">-1</div>
+</div>
+</div>
+<div class="lg:col-span-2 flex lg:justify-end items-center">
+<button class="w-12 h-12 rounded-full border border-white/20 group-hover:border-cyanElectric group-hover:bg-cyanElectric group-hover:text-bgDark flex items-center justify-center transition-all duration-300">
+<svg class="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+<!-- Project 04 -->
+<div class="project-panel group glass-card rounded-2xl p-6 md:p-8 transition-all duration-500 cursor-pointer" data-core-mode="default">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+<div class="lg:col-span-1 font-mono text-cyanElectric/70 text-sm font-semibold tracking-wider">
+                04/
+              </div>
+<div class="lg:col-span-4">
+<div class="font-mono text-[11px] text-violetAura tracking-wider uppercase mb-1">Data Engineering &amp; Analytics</div>
+<h3 class="font-display font-bold text-2xl sm:text-3xl text-white group-hover:text-cyanElectric transition-colors">
+                  MetroPulse Spatial Analytics
+                </h3>
+<p class="text-textSecondary text-sm mt-2 font-light">
+                  Quantitative multivariate statistical analysis exploring regional traffic congestion correlation with meteorological sensor feeds in Mumbai.
+                </p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 font-mono text-[11px] text-textSecondary">SQL</span>
+<span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 font-mono text-[11px] text-textSecondary">Plotly</span>
+<span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 font-mono text-[11px] text-textSecondary">Statistical Inference</span>
+</div>
+</div>
+<!-- Abstract Generative Telemetry Visual -->
+<div class="lg:col-span-5 rounded-xl bg-bgDark/80 border border-white/10 p-4 font-mono text-xs">
+<div class="flex items-center justify-between text-[11px] text-textSecondary border-b border-white/10 pb-2 mb-3">
+<span>GEO_HEATMAP_GRID</span>
+<span class="text-cyanElectric font-semibold">P &lt; 0.001</span>
+</div>
+<div class="h-16 flex items-center justify-around">
+<div class="w-12 h-12 rounded-full border border-cyanElectric/40 flex items-center justify-center animate-pulse">
+<div class="w-6 h-6 rounded-full bg-cyanElectric/30"></div>
+</div>
+<div class="w-16 h-16 rounded-full border border-violetAura/50 flex items-center justify-center">
+<div class="w-8 h-8 rounded-full bg-violetAura/30"></div>
+</div>
+<div class="w-10 h-10 rounded-full border border-blueSoft/40 flex items-center justify-center">
+<div class="w-4 h-4 rounded-full bg-blueSoft/30"></div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-2 flex lg:justify-end items-center">
+<button class="w-12 h-12 rounded-full border border-white/20 group-hover:border-cyanElectric group-hover:bg-cyanElectric group-hover:text-bgDark flex items-center justify-center transition-all duration-300">
+<svg class="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 03 — EXPERTISE & TECHNICAL CAPABILITIES -->
+<section class="min-h-screen w-full px-6 md:px-12 py-24 border-t border-white/10" id="expertise">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div>
+<div class="text-cyanElectric font-mono text-xs tracking-widest uppercase mb-3">// 03. SYSTEM CAPABILITY MATRIX</div>
+<h2 class="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight">
+              CONNECTED INTELLIGENCE.
+            </h2>
+</div>
+<p class="text-textSecondary max-w-md font-light text-sm sm:text-base">
+            Structured skill taxonomy organized by algorithmic rigor, computational tools, and generative AI frontiers.
+          </p>
+</div>
+<!-- Capability Matrix Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Column 1: AI & Data Science -->
+<div class="glass-card rounded-2xl p-6 md:p-8 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-cyanElectric/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex items-center space-x-2 text-cyanElectric font-mono text-xs mb-4">
+<span>01 // CORE ENGINE</span>
+</div>
+<h3 class="font-display font-bold text-xl text-white mb-6">AI &amp; Machine Learning</h3>
+<ul class="space-y-4 font-mono text-xs">
+<li class="flex items-center justify-between pb-2 border-b border-white/5">
+<span class="text-white font-medium">Python</span>
+<span class="text-cyanElectric">Primary Language</span>
+</li>
+<li class="flex items-center justify-between pb-2 border-b border-white/5">
+<span class="text-white font-medium">Supervised / Unsupervised</span>
+<span class="text-textSecondary">Model Architectures</span>
+</li>
+<li class="flex items-center justify-between pb-2 border-b border-white/5">
+<span class="text-white font-medium">Scikit-learn</span>
+<span class="text-textSecondary">Pipelines &amp; Ensembles</span>
+</li>
+<li class="flex items-center justify-between pb-2 border-b border-white/5">
+<span class="text-white font-medium">Pandas &amp; NumPy</span>
+<span class="text-textSecondary">Vectorized Transforms</span>
+</li>
+<li class="flex items-center justify-between">
+<span class="text-white font-medium">SQL &amp; Relational DBs</span>
+<span class="text-textSecondary">Data Wrangling</span>
+</li>
+</ul>
+</div>
+<!-- Column 2: Web & Interface Technology -->
+<div class="glass-card rounded-2xl p-6 md:p-8 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-violetAura/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex items-center space-x-2 text-violetAura font-mono text-xs mb-4">
+<span>02 // INTERFACE &amp; SPECS</span>
+</div>
+<h3 class="font-display font-bold text-xl text-white mb-6">Frontend &amp; Tools</h3>
+<ul class="space-y-4 font-mono text-xs">
+<li class="flex items-center justify-between pb-2 border-b border-white/5">
+<span class="text-white font-medium">Semantic HTML &amp; CSS</span>
+<span class="text-violetAura">Accessible Specs</span>
+</li>
+<li class="flex items-center justify-between pb-2 border-b border-white/5">
+<span class="text-white font-medium">Tailwind CSS</span>
+<span class="text-textSecondary">Utility Grids</span>
+</li>
+<li class="flex items-center justify-between pb-2 border-b border-white/5">
+<span class="text-white font-medium">Git &amp; GitHub</span>
+<span class="text-textSecondary">Version Control</span>
+</li>
+<li class="flex items-center justify-between pb-2 border-b border-white/5">
+<span class="text-white font-medium">Jupyter Notebooks</span>
+<span class="text-textSecondary">Scientific Reports</span>
+</li>
+<li class="flex items-center justify-between">
+<span class="text-white font-medium">Responsive Layouts</span>
+<span class="text-textSecondary">Cross-Platform</span>
+</li>
+</ul>
+</div>
+<!-- Column 3: Active Frontier -->
+<div class="glass-card rounded-2xl p-6 md:p-8 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-blueSoft/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex items-center space-x-2 text-blueSoft font-mono text-xs mb-4">
+<span>03 // ACTIVE LAB</span>
+</div>
+<h3 class="font-display font-bold text-xl text-white mb-6">Currently Exploring</h3>
+<ul class="space-y-4 font-mono text-xs">
+<li class="flex items-center justify-between pb-2 border-b border-white/5">
+<span class="text-white font-medium">Deep Neural Networks</span>
+<span class="text-blueSoft">PyTorch / Tensors</span>
+</li>
+<li class="flex items-center justify-between pb-2 border-b border-white/5">
+<span class="text-white font-medium">Generative AI</span>
+<span class="text-textSecondary">Diffusion &amp; Latents</span>
+</li>
+<li class="flex items-center justify-between pb-2 border-b border-white/5">
+<span class="text-white font-medium">LLM Applications</span>
+<span class="text-textSecondary">RAG &amp; Embeddings</span>
+</li>
+<li class="flex items-center justify-between pb-2 border-b border-white/5">
+<span class="text-white font-medium">Model Deployment</span>
+<span class="text-textSecondary">FastAPI &amp; ONNX</span>
+</li>
+<li class="flex items-center justify-between">
+<span class="text-white font-medium">Creative WebGL</span>
+<span class="text-textSecondary">Shader Art</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- 04 — ABOUT & JOURNEY -->
+<section class="min-h-screen w-full px-6 md:px-12 py-24 border-t border-white/10" id="about">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Column: Manifesto Statement -->
+<div class="lg:col-span-6">
+<div class="text-cyanElectric font-mono text-xs tracking-widest uppercase mb-3">// 04. PHILOSOPHY &amp; JOURNEY</div>
+<h2 class="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+              CURIOUS BY NATURE.<br/>
+<span class="text-cyanElectric">ENGINEERED</span> FOR THE FUTURE.
+            </h2>
+<p class="mt-8 text-textSecondary text-base sm:text-lg font-light leading-relaxed">
+              I’m an AI and Data Science student driven by curiosity, disciplined experimentation, and the ambition to solve meaningful problems. I combine analytical thinking with creative technology to build experiences that feel useful, intelligent, and distinctly human.
+            </p>
+<div class="mt-8 p-6 rounded-2xl glass-card border border-white/10">
+<div class="font-mono text-xs text-textSecondary uppercase tracking-wider mb-2">PERSONAL MANIFESTO</div>
+<p class="font-display font-medium text-lg text-white">
+                "Good technology doesn’t just process information. It creates clarity."
+              </p>
+<p class="text-xs text-textSecondary mt-2">
+                In an era overloaded with stochastic noise, real engineering requires radical discernment, mathematical integrity, and reproducible code.
+              </p>
+</div>
+<div class="mt-8 flex items-center space-x-4">
+<a class="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-white font-mono text-xs tracking-wider transition-all" href="#contact">
+                DOWNLOAD RÉSUMÉ (PDF) ↓
+              </a>
+</div>
+</div>
+<!-- Right Column: Academic & Technical Timeline -->
+<div class="lg:col-span-6 glass-card rounded-2xl p-6 md:p-8">
+<h3 class="font-display font-bold text-xl text-white mb-6 flex items-center justify-between">
+<span>ACADEMIC TIMELINE</span>
+<span class="font-mono text-xs text-cyanElectric">2024 — PRESENT</span>
+</h3>
+<div class="relative border-l border-white/15 ml-3 space-y-8 pl-6">
+<!-- Milestone 1 -->
+<div class="relative">
+<span class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-cyanElectric shadow-[0_0_12px_rgba(82,232,255,0.8)]"></span>
+<span class="font-mono text-xs text-cyanElectric">2026 — PRESENT // ONGOING</span>
+<h4 class="font-display font-semibold text-lg text-white mt-1">B.Voc in AI/ML &amp; Data Science</h4>
+<p class="font-mono text-xs text-textSecondary mt-0.5">Nexcore Institute of Technology</p>
+<p class="text-xs text-textSecondary mt-2 font-light leading-relaxed">
+                  Immersive degree curriculum focusing on advanced computational mathematics, statistical inference, applied machine learning architectures, and scalable data pipelines.
+                </p>
+</div>
+<!-- Milestone 2 -->
+<div class="relative">
+<span class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-violetAura/70"></span>
+<span class="font-mono text-xs text-textSecondary">2024 — 2026 // COMPLETED</span>
+<h4 class="font-display font-semibold text-lg text-white mt-1">Higher Secondary Education</h4>
+<p class="font-mono text-xs text-textSecondary mt-0.5">Navneet Junior College</p>
+<p class="text-xs text-textSecondary mt-2 font-light leading-relaxed">
+                  Rigorous scientific and analytical coursework covering advanced mathematics, physics, and logical reasoning paradigms.
+                </p>
+</div>
+<!-- Milestone 3 -->
+<div class="relative">
+<span class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-white/20"></span>
+<span class="font-mono text-xs text-textSecondary">EARLIER EDUCATION</span>
+<h4 class="font-display font-semibold text-lg text-white mt-1">Secondary School Certificate (SSC)</h4>
+<p class="font-mono text-xs text-textSecondary mt-0.5">Safa High School</p>
+<p class="text-xs text-textSecondary mt-2 font-light leading-relaxed">
+                  Fundamental academic formation establishing core discipline, qualitative inquiry, and foundational computer literacy.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 05 — CONTACT FINALE (CONVERGING HALO) -->
+<section class="min-h-screen w-full px-6 md:px-12 py-24 border-t border-white/10 flex flex-col justify-center items-center text-center relative overflow-hidden" id="contact">
+<div class="max-w-4xl mx-auto z-10">
+<div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-cyanElectric/30 bg-cyanElectric/5 mb-6">
+<span class="w-2 h-2 rounded-full bg-cyanElectric animate-pulse"></span>
+<span class="font-mono text-xs uppercase tracking-widest text-cyanElectric">SYSTEM ENGAGEMENT INITIATION</span>
+</div>
+<h2 class="font-display font-bold text-4xl sm:text-6xl md:text-7xl text-white tracking-tight leading-tight">
+          LET’S BUILD SOMETHING <br/>
+<span class="gradient-text-glow">INTELLIGENT</span> TOGETHER.
+        </h2>
+<p class="mt-6 text-base sm:text-lg text-textSecondary max-w-xl mx-auto font-light leading-relaxed">
+          Open to technical internships, applied research collaborations, and junior AI engineering roles. Let’s turn complex data into elegant clarity.
+        </p>
+<!-- Direct Email Card -->
+<div class="mt-10 p-4 sm:p-6 rounded-2xl glass-card max-w-md mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="text-left font-mono">
+<div class="text-[10px] text-textSecondary uppercase tracking-wider">DIRECT COMMUNICATION</div>
+<div class="text-sm font-semibold text-white select-all">alimapari.work@gmail.com</div>
+</div>
+<button class="px-4 py-2 rounded-lg bg-cyanElectric text-bgDark font-mono text-xs font-bold hover:bg-white transition-colors cursor-pointer" id="copy-btn">
+            COPY EMAIL
+          </button>
+</div>
+<!-- Magnetic Direct Actions -->
+<div class="mt-8 flex flex-wrap justify-center items-center gap-4">
+<a class="px-8 py-4 rounded-xl bg-gradient-to-r from-cyanElectric to-violetAura text-bgDark font-display font-bold text-sm tracking-wider hover:opacity-95 hover:shadow-[0_0_35px_rgba(82,232,255,0.4)] transition-all" href="mailto:alimapari.work@gmail.com">
+            START A CONVERSATION ↗
+          </a>
+<a class="px-6 py-4 rounded-xl glass-card font-mono text-xs tracking-wider text-white hover:border-cyanElectric/40 transition-colors" href="https://linkedin.com/in/ali-mapari" target="_blank">
+            LINKEDIN ↗
+          </a>
+<a class="px-6 py-4 rounded-xl glass-card font-mono text-xs tracking-wider text-white hover:border-cyanElectric/40 transition-colors" href="https://github.com/alimapari" target="_blank">
+            GITHUB ↗
+          </a>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="relative z-10 w-full px-6 md:px-12 py-8 border-t border-white/10 bg-bgDark/90 backdrop-blur-md">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center space-x-3">
+<span class="font-display font-bold text-white text-sm">ALI MAPARI © 2026</span>
+<span class="text-white/20">|</span>
+<span class="font-mono text-xs text-textSecondary">MUMBAI, INDIA</span>
+<span class="text-white/20">|</span>
+<span class="font-mono text-xs text-cyanElectric" id="local-time">IST --:--:--</span>
+</div>
+<div class="font-mono text-xs text-textSecondary">
+        DESIGNED &amp; DEVELOPED WITH CURIOSITY
+      </div>
+<a class="font-mono text-xs text-cyanElectric hover:underline flex items-center gap-1" href="#">
+        BACK TO TOP ↑
+      </a>
+</div>
+</footer>
+<!-- SCRIPT FOR UI INTERACTION & 3D LINKAGE -->
+<script>
+    // 1. Cinematic Loading Sequence
+    window.addEventListener('DOMContentLoaded', () => {
+      let percent = 0;
+      const percentEl = document.getElementById('loader-percent');
+      const barEl = document.getElementById('loader-bar');
+      const loader = document.getElementById('loader');
+
+      const interval = setInterval(() => {
+        percent += Math.floor(Math.random() * 15) + 12;
+        if (percent >= 100) {
+          percent = 100;
+          clearInterval(interval);
+          if (percentEl) percentEl.textContent = '100%';
+          if (barEl) barEl.style.width = '100%';
+
+          setTimeout(() => {
+            if (loader) {
+              loader.classList.add('opacity-0');
+              setTimeout(() => loader.remove(), 700);
+            }
+          }, 400);
+        } else {
+          if (percentEl) percentEl.textContent = percent + '%';
+          if (barEl) barEl.style.width = percent + '%';
+        }
+      }, 70);
+
+      // Local IST Time Clock
+      function updateTime() {
+        const timeEl = document.getElementById('local-time');
+        if (timeEl) {
+          const now = new Date();
+          const options = { timeZone: 'Asia/Kolkata', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+          timeEl.textContent = 'IST ' + now.toLocaleTimeString('en-GB', options);
+        }
+      }
+      updateTime();
+      setInterval(updateTime, 1000);
+
+      // Email Copy Button
+      const copyBtn = document.getElementById('copy-btn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText('alimapari.work@gmail.com');
+          copyBtn.textContent = 'COPIED!';
+          setTimeout(() => copyBtn.textContent = 'COPY EMAIL', 2000);
+        });
+      }
+
+      // Custom Cursor tracking
+      const cursorDot = document.getElementById('custom-cursor-dot');
+      const cursorRing = document.getElementById('custom-cursor-ring');
+      window.addEventListener('mousemove', (e) => {
+        if (cursorDot) {
+          cursorDot.style.left = e.clientX + 'px';
+          cursorDot.style.top = e.clientY + 'px';
+        }
+        if (cursorRing) {
+          cursorRing.style.left = e.clientX + 'px';
+          cursorRing.style.top = e.clientY + 'px';
+        }
+      });
+
+      // Project Panel hover custom events to link with Three.js scene
+      const projectPanels = document.querySelectorAll('.project-panel');
+      projectPanels.forEach(panel => {
+        panel.addEventListener('mouseenter', () => {
+          const mode = panel.getAttribute('data-core-mode') || 'default';
+          window.dispatchEvent(new CustomEvent('project-focus', { detail: { mode } }));
+          if (cursorRing) {
+            cursorRing.classList.add('w-16', 'h-16', 'border-cyanElectric');
+            cursorRing.textContent = 'VIEW';
+          }
+        });
+        panel.addEventListener('mouseleave', () => {
+          window.dispatchEvent(new CustomEvent('project-focus', { detail: { mode: 'default' } }));
+          if (cursorRing) {
+            cursorRing.classList.remove('w-16', 'h-16', 'border-cyanElectric');
+            cursorRing.textContent = '';
+          }
+        });
+      });
+
+      // Navbar scroll glass effect
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          navbar.classList.add('bg-bgDark/80', 'backdrop-blur-md', 'py-3', 'border-b', 'border-white/10');
+          navbar.classList.remove('py-5');
+        } else {
+          navbar.classList.remove('bg-bgDark/80', 'backdrop-blur-md', 'py-3', 'border-b', 'border-white/10');
+          navbar.classList.add('py-5');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

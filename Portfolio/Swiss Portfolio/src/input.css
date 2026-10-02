@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #F1F0EB;
+  --color-ink: #111111;
+  --color-signalRed: #E3342F;
+  --color-neutralGrey: #A6A6A1;
+  --color-gridBorder: rgba(17, 17, 17, 0.12);
+  --color-darkSurface: #161616;
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.03em;
+  --tracking-editorial: -0.02em;
+  --tracking-widestTracking: 0.15em;
+}
+
+/* Custom Swiss Grid & Editorial Elements */
+:root {
+  --color-paper: #F1F0EB;
+  --color-ink: #111111;
+  --color-red: #E3342F;
+  --grid-line: rgba(17, 17, 17, 0.12);
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
+  cursor: crosshair;
+}
+
+/* Selection styling */
+::selection {
+  background-color: #111111;
+  color: #F1F0EB;
+}
+
+/* Geometric Swiss Registration Mark */
+.reg-mark {
+  position: relative;
+  width: 14px;
+  height: 14px;
+}
+.reg-mark::before, .reg-mark::after {
+  content: '';
+  position: absolute;
+  background-color: var(--color-ink);
+}
+.reg-mark::before {
+  top: 0; left: 6px; width: 2px; height: 14px;
+}
+.reg-mark::after {
+  top: 6px; left: 0; width: 14px; height: 2px;
+}
+
+/* Subtle grid overlay lines */
+.grid-column-guide {
+  background-image: linear-gradient(to right, rgba(17,17,17,0.06) 1px, transparent 1px);
+  background-size: calc(100% / 12) 100%;
+}
+
+/* Fluid Typographic Utilities */
+.hero-title {
+  font-size: clamp(4.5rem, 16vw, 19rem);
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+}
+.statement-title {
+  font-size: clamp(2.25rem, 6.5vw, 6.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+}
+.sub-editorial {
+  font-size: clamp(1.25rem, 2.5vw, 2.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+/* Project row hover transition */
+.project-row {
+  transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s ease;
+}
+.project-row:hover {
+  background-color: #111111;
+  color: #F1F0EB;
+}
+.project-row:hover .project-tag {
+  color: #A6A6A1;
+  border-color: rgba(241, 240, 235, 0.2);
+}
+.project-row:hover .project-preview {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.project-row:hover .project-arrow {
+  transform: translate(6px, -6px);
+  color: var(--color-red);
+}
+.project-row:hover .project-red-bar {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/* Red square signature */
+.red-square {
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-red);
+  display: inline-block;
+}
+
+/* Custom scroll progress indicator */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background-color: var(--color-red);
+  z-index: 100;
+  width: 0%;
+  transition: width 0.05s ease-out;
+}
+
+/* Blinking status dot */
+@keyframes pulse-signal {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.85); }
+}
+.animate-signal {
+  animation: pulse-signal 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
