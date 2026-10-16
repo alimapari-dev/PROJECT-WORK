@@ -1,0 +1,20 @@
+@import "tailwindcss" ;
+
+@theme{
+  --color-burn: #C05621;
+  --color-brown: #9F3E07;
+  --color-pri-txt: #806F69;
+  --color-sec-txt: #57423A;
+  --color-grey: #5D5B5B;
+  --color-beige: #FCF9F8;
+}
+
+@utility btn-orange{
+  @apply bg-burn rounded-md text-white uppercase p-2 px-4 font-medium cursor-pointer
+  hover:bg-brown transition-colors duration-200 ease-in-out ;
+}
+
+@utility btn-gray{
+  @apply bg-gray-200 rounded-md text-black uppercase p-2 px-4 font-medium cursor-pointer
+  hover:bg-gray-300 transition-colors duration-200 ease-in-out ; 
+}

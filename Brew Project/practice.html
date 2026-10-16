@@ -1,0 +1,812 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container-highest":"#e5e2e1","outline":"#8a7268","surface-tint":"#a14009","surface-container-low":"#f6f3f2","error-container":"#ffdad6","on-tertiary-fixed":"#001e2e","surface-variant":"#e5e2e1","on-primary-fixed-variant":"#7d2d00","surface-container-high":"#eae7e7","on-tertiary":"#ffffff","secondary-fixed-dim":"#c8c6c5","primary-container":"#c05621","surface-container":"#f0eded","on-error-container":"#93000a","primary":"#9f3e07","on-secondary-fixed":"#1b1c1c","surface":"#fcf9f8","secondary-fixed":"#e4e2e1","on-error":"#ffffff","on-secondary-fixed-variant":"#474746","surface-container-lowest":"#ffffff","on-primary-container":"#fffeff","secondary":"#5f5e5e","on-primary-fixed":"#360f00","on-secondary":"#ffffff","surface-bright":"#fcf9f8","on-secondary-container":"#656464","secondary-container":"#e4e2e1","on-primary":"#ffffff","on-surface":"#1c1b1b","on-tertiary-fixed-variant":"#004c6c","on-background":"#1c1b1b","tertiary":"#00648d","inverse-primary":"#ffb596","primary-fixed":"#ffdbcd","primary-fixed-dim":"#ffb596","surface-dim":"#dcd9d9","inverse-on-surface":"#f3f0ef","tertiary-fixed-dim":"#85cfff","inverse-surface":"#313030","tertiary-fixed":"#c7e7ff","error":"#ba1a1a","background":"#fcf9f8","on-surface-variant":"#57423a","on-tertiary-container":"#ffffff","tertiary-container":"#007eb1","outline-variant":"#dec0b5"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-sm":"0.5rem","space-lg":"1.5rem","space-xl":"2.5rem","gutter":"1.5rem","space-md":"1rem","gutter-mobile":"1rem","margin-mobile":"1.25rem","space-xs":"0.25rem","margin":"3rem"},fontFamily:{"headline-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"display-hero":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"display-hero-mobile":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"]},fontSize:{"headline-sm":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-lg":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["18px",{lineHeight:"28px",letterSpacing:"0",fontWeight:"400"}],"display-hero":["56px",{lineHeight:"64px",letterSpacing:"-0.03em",fontWeight:"700"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.06em",fontWeight:"600"}],"body-md":["15px",{lineHeight:"24px",letterSpacing:"0",fontWeight:"400"}],"body-sm":["13px",{lineHeight:"20px",letterSpacing:"0.005em",fontWeight:"400"}],"display-hero-mobile":["36px",{lineHeight:"44px",letterSpacing:"-0.025em",fontWeight:"700"}],"title-md":["18px",{lineHeight:"26px",letterSpacing:"-0.005em",fontWeight:"500"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.08em",fontWeight:"600"}],"headline-lg-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-40 bg-surface/90 backdrop-blur-md border-b border-outline-variant"><div class="h-20 max-w-7xl mx-auto px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-sm"><img alt="Brewline Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UDkG1BXFXpSXDuZtA8k9QsKnkRIq5B16E49vuZf86ULunI3wQ0NQalm2QhM1fheuRovA7TdcJh8iBxBWCASTWU_mlzgMMj-HoxKJulfZba1C-GD5yLVA8mfzpjRB768FyC2r1Flm1OFhbYwJ7TsO9ErpT3QSNd9cqV1RQjK-7u24s9sClbKDIqtbHaD2AsQRmRs2Qyw2azCjN18pITVaQxlXw9s6Hgh6GYV1qiM0UEhT7odqHXRGsp4nk"></div><nav class="hidden md:flex items-center gap-space-lg" data-active-classes="text-primary font-semibold border-b border-primary pb-space-xs"><a aria-current="page" class="transition-colors text-primary font-semibold border-b border-primary pb-space-xs" data-path="features" href="#">Features</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="plans" href="#">Plans</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="stories" href="#">Stories</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-space-md"><a class="inline-flex items-center justify-center bg-primary-container text-on-primary-container font-label-md text-label-md uppercase tracking-wider px-space-lg py-space-sm rounded-lg hover:bg-primary transition-colors" data-path="sign-up" href="#">Sign up</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<!-- 2. Hero Section -->
+<section class="w-full max-w-7xl mx-auto px-margin py-space-xl lg:py-20">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<!-- Left Editorial Pitch -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg pr-0 lg:pr-space-xl">
+<div class="inline-flex items-center gap-space-xs self-start px-space-sm py-1 bg-surface-container rounded-full text-primary font-label-md text-label-md tracking-wider uppercase">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          Fresh Crop Batch #204 Now Roasting
+        </div>
+<h1 class="font-display-hero text-display-hero text-on-surface tracking-tight">
+          Freshly Roasted Specialty Coffee, Delivered to Your Door
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+          Discover single-origin beans sourced directly from ethical micro-lot farmers worldwide. Tailored roast profiles, customized grinding, and flexible bi-weekly deliveries.
+        </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<a class="inline-flex items-center justify-center bg-primary-container text-on-primary-container font-label-md text-label-md uppercase tracking-wider px-8 py-3.5 rounded-lg shadow-sm hover:bg-primary transition-colors" href="#join-club">
+            Build Your Box
+          </a>
+<a class="inline-flex items-center justify-center bg-surface-container-low text-on-surface font-label-md text-label-md uppercase tracking-wider px-8 py-3.5 rounded-lg hover:bg-surface-container transition-colors" href="#plans">
+            Explore Roasts
+          </a>
+</div>
+<div class="flex items-center gap-space-lg pt-space-md text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">local_shipping</span>
+<span class="font-body-sm text-body-sm">Carbon-neutral delivery</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">verified</span>
+<span class="font-body-sm text-body-sm">Direct Trade certified</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">event_repeat</span>
+<span class="font-body-sm text-body-sm">Skip or cancel anytime</span>
+</div>
+</div>
+</div>
+<!-- Right Product Mockup / Visual Frame -->
+<div class="lg:col-span-5 relative mt-space-lg lg:mt-0">
+<div class="relative bg-surface-container-low rounded-xl p-space-md lg:p-space-lg shadow-md overflow-hidden">
+<!-- Overlapping Top Badge -->
+<div class="absolute top-4 left-4 z-20 inline-flex items-center gap-1.5 bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-md text-label-md uppercase tracking-wider shadow-sm">
+<span class="material-symbols-outlined text-[16px]">eco</span>
+            New Micro-lot Release
+          </div>
+<div class="relative aspect-[4/5] w-full rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700" data-alt="Specialty craft coffee bag of Ethiopia Yirgacheffe standing on a minimalist warm travertine stone kitchen counter beside a handmade ceramic cup of freshly brewed black coffee, soft morning sunlight casting elegant warm architectural shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-iuA5a1xBSa5Njdaapsz61pN9WfGaPZ1XJcx6LOHJRZG72_G1l7wwL9KNoI4xnXZeg6PfelJMGUAjooU9Fd3llqPKZO0V-Qzr5uwOD0XMvKrWF7xOH5J7t4zUtKdMDr3Bt7x7daoCiPCW_Of2cP1KI7omkXLpeXrDz6V0dA2eARVx-25t41tivcrmGZiAKGF7nPEfXCCN1rVQpZkA4AO_V_-0I-3TY3sMGfvBqOt5EEdnO0uhjy8Q">
+</div>
+<!-- Bottom Customer Review Floating Card -->
+<div class="absolute -bottom-2 left-6 right-6 lg:left-8 lg:right-8 bg-surface-container-lowest/95 backdrop-blur-md rounded-lg p-space-md shadow-xl -mt-6 z-20">
+<div class="flex items-center gap-space-sm mb-1.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center font-bold text-primary font-label-sm text-label-sm">
+                MT
+              </div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Marcus T.</span>
+<div class="flex text-primary text-[14px]">
+<span class="">★</span><span class="">★</span><span class="">★</span><span class="">★</span><span class="">★</span>
+</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">
+              “The best Ethiopian Yirgacheffe subscription in the UK.”
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Partner Logo Strip -->
+<section class="w-full bg-surface-container-low py-space-xl">
+<div class="max-w-7xl mx-auto px-margin flex flex-col items-center">
+<p class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant mb-space-lg text-center">
+        Trusted by world-class roasters &amp; cafes
+      </p>
+<div class="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-space-lg items-center justify-items-center opacity-70">
+<div class="flex items-center gap-2 font-headline-sm text-headline-sm text-on-surface tracking-tighter uppercase grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+<span class="material-symbols-outlined text-primary text-[26px]">grain</span>
+          Onyx Lab
+        </div>
+<div class="flex items-center gap-2 font-headline-sm text-headline-sm text-on-surface tracking-tighter uppercase grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+<span class="material-symbols-outlined text-primary text-[26px]">radio_button_checked</span>
+          Counter Culture
+        </div>
+<div class="flex items-center gap-2 font-headline-sm text-headline-sm text-on-surface tracking-tighter uppercase grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+<span class="material-symbols-outlined text-primary text-[26px]">square</span>
+          Square Mile
+        </div>
+<div class="flex items-center gap-2 font-headline-sm text-headline-sm text-on-surface tracking-tighter uppercase grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+<span class="material-symbols-outlined text-primary text-[26px]">filter_vintage</span>
+          Tim Wendelboe
+        </div>
+<div class="flex items-center gap-2 font-headline-sm text-headline-sm text-on-surface tracking-tighter uppercase grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+<span class="material-symbols-outlined text-primary text-[26px]">hdr_auto</span>
+          April Coffee
+        </div>
+</div>
+</div>
+</section>
+<!-- 4. Features Section -->
+<section class="w-full max-w-7xl mx-auto px-margin py-space-xl lg:py-24">
+<div class="flex flex-col items-center text-center mb-space-xl max-w-2xl mx-auto">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary mb-2">Our Standard</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mb-space-sm">Crafted for Pure Taste</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Every harvest is roasted with laboratory discipline and culled down to the peak 1% of raw specialty green beans.
+      </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined text-[28px]">schedule</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Fresh Roast Guarantee</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Dispatched within 48 hours of flame roasting so degassed aromatic compounds peak on arrival.
+          </p>
+</div>
+<div class="mt-space-lg pt-space-xs font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold flex items-center gap-1">
+          Peak extraction cycle <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined text-[28px]">handshake</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">100% Direct Trade</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Transparent agreements paying up to 300% above Fair Trade minimums straight to independent farming families.
+          </p>
+</div>
+<div class="mt-space-lg pt-space-xs font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold flex items-center gap-1">
+          Full audit transparency <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined text-[28px]">tune</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Custom Grind Precision</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Ground on Mahlkönig EK43 burrs calibrated specifically for espresso, pour-over, Aeropress, or french press.
+          </p>
+</div>
+<div class="mt-space-lg pt-space-xs font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold flex items-center gap-1">
+          Micron-level burr setting <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined text-[28px]">sync_alt</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Flexible Cadence</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Traveling or stocked up? Pause, accelerate, or switch your bag count in a single click without penalty.
+          </p>
+</div>
+<div class="mt-space-lg pt-space-xs font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold flex items-center gap-1">
+          No lock-in contracts <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined text-[28px]">menu_book</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Curated Tasting Notes</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Every delivery includes custom botanical tasting wheel cards, harvest elevation stats, and brew ratios.
+          </p>
+</div>
+<div class="mt-space-lg pt-space-xs font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold flex items-center gap-1">
+          Collector origin prints <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined text-[28px]">compost</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Zero Plastic Packaging</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            100% home-compostable Kraft barrier pouches made from plant cellulose with bio-based degas valves.
+          </p>
+</div>
+<div class="mt-space-lg pt-space-xs font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold flex items-center gap-1">
+          Certified ASTM D6400 <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. How It Works Section -->
+<section class="w-full bg-surface-container-low py-space-xl lg:py-24">
+<div class="max-w-7xl mx-auto px-margin">
+<div class="flex flex-col items-center text-center mb-space-xl max-w-xl mx-auto">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary mb-2">The Ritual</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Three Simple Steps to Better Mornings</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter relative">
+<!-- Step 1 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col relative">
+<span class="text-display-hero font-display-hero text-outline-variant/60 leading-none mb-space-sm">01</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Choose Your Taste Profile</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-lg">
+            Select your favorite roast depth, acidity preference, and brew format. We tailor your selection instantly.
+          </p>
+<div class="mt-auto bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-semibold">Tasting Profile</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Fruity &amp; Floral</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col relative">
+<span class="text-display-hero font-display-hero text-outline-variant/60 leading-none mb-space-sm">02</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">We Small-Batch Roast</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-lg">
+            Hand-roasted weekly in artisanal gas drum roasters with customized temperature curves for optimal sugar caramelization.
+          </p>
+<div class="mt-auto bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-semibold">Roast Method</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Cast Iron Drum</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col relative">
+<span class="text-display-hero font-display-hero text-outline-variant/60 leading-none mb-space-sm">03</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Delivered Fresh</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-lg">
+            Letterbox-friendly recyclable parcels delivered to your doorstep. Sealed freshness ready to brew the moment it lands.
+          </p>
+<div class="mt-auto bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-semibold">Packaging</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Letterbox Fit</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Pricing Section -->
+<section class="w-full max-w-7xl mx-auto px-margin py-space-xl lg:py-24" id="plans">
+<div class="flex flex-col items-center text-center mb-space-xl max-w-2xl mx-auto">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary mb-2">Subscriptions</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mb-space-sm">Simple, Honest Subscription Plans</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Cancel or adjust your shipment frequency at any time with no setup fees or hidden commitments.
+      </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter items-stretch">
+<!-- Plan 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative">
+<div>
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Single Origin</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">The Explorer</h3>
+<div class="my-space-md flex items-baseline gap-1">
+<span class="font-display-hero-mobile text-display-hero-mobile font-bold text-on-surface">$18</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ month</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-lg">
+            Ideal for casual solo coffee drinkers looking to elevate their morning brew with rotating single origins.
+          </p>
+<ul class="space-y-3 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+              1 bag / month (250g whole bean or ground)
+            </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+              Rotating seasonal single-origin farms
+            </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+              Free letterbox-friendly shipping
+            </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+              Pause or cancel anytime
+            </li>
+</ul>
+</div>
+<a class="mt-space-xl w-full text-center bg-surface-container-high text-on-surface font-label-md text-label-md uppercase tracking-wider py-3 rounded-lg hover:bg-surface-container-highest transition-colors" href="#join-club">
+          Select Explorer
+        </a>
+</div>
+<!-- Plan 2 (Highlighted) -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-lg flex flex-col justify-between relative ring-2 ring-primary">
+<!-- Floating Overlapping Badge -->
+<div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest py-1 px-4 rounded-full shadow-md">
+          Most Popular
+        </div>
+<div>
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold">Curator's Choice</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">The Connoisseur</h3>
+<div class="my-space-md flex items-baseline gap-1">
+<span class="font-display-hero-mobile text-display-hero-mobile font-bold text-on-surface">$32</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ month</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-lg">
+            Our premier curation for passionate coffee lovers who savor exceptional, limited micro-lot origins.
+          </p>
+<ul class="space-y-3 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-2 font-medium">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+              2 bags / month (500g total)
+            </li>
+<li class="flex items-center gap-2 font-medium">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+              Exclusive rare micro-lot releases
+            </li>
+<li class="flex items-center gap-2 font-medium">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+              Free priority dispatch shipping
+            </li>
+<li class="flex items-center gap-2 font-medium">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+              Tasting flight brew notes &amp; cup scores
+            </li>
+<li class="flex items-center gap-2 font-medium">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+              Early access to experimental anaerobic roasts
+            </li>
+</ul>
+</div>
+<a class="mt-space-xl w-full text-center bg-primary-container text-on-primary-container font-label-md text-label-md uppercase tracking-wider py-3.5 rounded-lg shadow-sm hover:bg-primary transition-colors font-semibold" href="#join-club">
+          Start Connoisseur
+        </a>
+</div>
+<!-- Plan 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative">
+<div>
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">High Volume</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">The Collective</h3>
+<div class="my-space-md flex items-baseline gap-1">
+<span class="font-display-hero-mobile text-display-hero-mobile font-bold text-on-surface">$58</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ month</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-lg">
+            Engineered for shared spaces, serious home roasters, and bustling households consuming daily brews.
+          </p>
+<ul class="space-y-3 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+              4 bags / month (1kg total)
+            </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+              Custom combination of blends &amp; origins
+            </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+              Free weekly or bi-weekly courier shipping
+            </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+              Direct Barista hotline support
+            </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+              15% equipment &amp; grinder discount
+            </li>
+</ul>
+</div>
+<a class="mt-space-xl w-full text-center bg-surface-container-high text-on-surface font-label-md text-label-md uppercase tracking-wider py-3 rounded-lg hover:bg-surface-container-highest transition-colors" href="#join-club">
+          Select Collective
+        </a>
+</div>
+</div>
+</section>
+<!-- 7. Stories Section -->
+<section class="w-full bg-surface-container-low py-space-xl lg:py-24">
+<div class="max-w-7xl mx-auto px-margin">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl">
+<div>
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary mb-2">Editorial Field Notes</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">From Origin to Cup</h2>
+</div>
+<a class="mt-4 md:mt-0 inline-flex items-center gap-1 font-label-md text-label-md uppercase tracking-wider text-primary font-semibold hover:underline" href="#">
+          View All Stories <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Story 1 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group hover:shadow-md transition-shadow">
+<div class="aspect-[16/10] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Coffee farmer in Yirgacheffe Ethiopia gently inspecting ripe red coffee cherries drying on raised African wooden drying beds beneath soft sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAmGyEotixG8FHE9UG4m-TnJpkOq0QxrjxQkN2fLb-qtXipV4hYHxpqsXvz3BlIzEy0WxEVlLLWnqhivtnXCynjzI5juhK6DiKz-SzJNEhckA_QYLUK7LThdKnFw88e6AwWW6_UdJJnp4OCgc87Owa2AQXRZEPezyHpyzJQcDuBnkBgBgNk4J3wOjTsFx1NaRwwRAFFsOUJuLiKo_pga5tkrsOMYUmHVlcHlOIT_zbehCXvTo74AQ1">
+</div>
+<div class="p-space-lg flex flex-col flex-1">
+<span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider self-start mb-space-sm">Origin Guide</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors mb-space-xs">
+              Walking the Raised Beds of Yirgacheffe
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md line-clamp-3">
+              How natural processing in the highlands of Gedeo transforms heirloom varietals into explosive cups of sweet jasmine and wild blueberry.
+            </p>
+<div class="mt-auto pt-space-sm flex items-center justify-between border-t border-outline-variant/30">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center font-bold text-[11px] text-on-surface">
+                  MK
+                </div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Mateo Keller</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[10px]">Oct 14, 2024</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold group-hover:translate-x-1 transition-transform">Read more →</span>
+</div>
+</div>
+</article>
+<!-- Story 2 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group hover:shadow-md transition-shadow">
+<div class="aspect-[16/10] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Barista precisely pouring steaming hot water from a copper gooseneck kettle onto ground coffee in a glass Chemex dripper with morning light glowing through glass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvaGnqCOZ77YoUWEVq9bIoSAvI6ehUevGrwCU3HV6qzm7cveM7usgmMqYuII7j-CJ0He6SLCXRq2b6VTCpGWa0gvs753unkVKZqqAbB8Pwc-V21OlETaSmfSFeqqKtT5WCvDMsCQHG4dYClZc-WKcOZjUTqaReF7D0FF4b9mDM2umz_sZrOpyrelYlNT6OEBGmCm2ARSLV9q6eChn6RTPrYZUnFBwAh_NBLal13VXkp18IeusmbYcu">
+</div>
+<div class="p-space-lg flex flex-col flex-1">
+<span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider self-start mb-space-sm">Brew Method</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors mb-space-xs">
+              Dialing In the Chemex Pour-Over
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md line-clamp-3">
+              Understanding flow resistance, agitation, and water minerals to unlock crystal clarity from dense washed Colombian coffees.
+            </p>
+<div class="mt-auto pt-space-sm flex items-center justify-between border-t border-outline-variant/30">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center font-bold text-[11px] text-on-surface">
+                  SL
+                </div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Sarah Lin</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[10px]">Nov 02, 2024</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold group-hover:translate-x-1 transition-transform">Read more →</span>
+</div>
+</div>
+</article>
+<!-- Story 3 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group hover:shadow-md transition-shadow">
+<div class="aspect-[16/10] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Organic shade grown coffee trees flourishing under large forest canopy trees on a regenerative farm in Costa Rica with misty mountains in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo_q05iV5U17FreLtShREQ3QgatZOvU0sLm29MH8UoCmHE8ZBJJHVMDnO_-lPIixVo5zrDY-dqNbXX2v5ytn2dy3tq5lZeTIuGSoybk_ldZAPC4SfmKg69-DkNF7LJfRuDetkQTiMdv9clV9lpTWXvqv3XFNEgBFcl_NHU_CeALxVpRzs0F9SHeH5taeLQtcjF9K-qcH3sxx9sB0TqpaN6D9rf4teEXCC3iEK59mBmpdtXUWOzrIxM">
+</div>
+<div class="p-space-lg flex flex-col flex-1">
+<span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider self-start mb-space-sm">Sustainability</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors mb-space-xs">
+              The True Cost of Shade-Grown Canopies
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md line-clamp-3">
+              Why biodiversity-first micro-climate farming produces lower overall yields but yields unforgettable cup complexity and protects migratory birds.
+            </p>
+<div class="mt-auto pt-space-sm flex items-center justify-between border-t border-outline-variant/30">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center font-bold text-[11px] text-on-surface">
+                  JR
+                </div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Julian Ross</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[10px]">Nov 19, 2024</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold group-hover:translate-x-1 transition-transform">Read more →</span>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- 8. Testimonials Section -->
+<section class="w-full max-w-7xl mx-auto px-margin py-space-xl lg:py-24">
+<div class="flex flex-col items-center text-center mb-space-xl max-w-2xl mx-auto">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary mb-2">Member Community</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Loved by 20,000+ Coffee Lovers</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-stretch">
+<!-- Left: ONE Large Quote Card spanning visually -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-space-xl rounded-xl shadow-md flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-lg">
+<span class="material-symbols-outlined text-[48px] text-primary/30">format_quote</span>
+<div class="flex text-primary text-[18px]">
+<span class="">★</span><span class="">★</span><span class="">★</span><span class="">★</span><span class="">★</span>
+</div>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface italic font-normal leading-relaxed mb-space-lg">
+            “Brewline completely changed our morning routine. The natural processed Geisha we received last month was nothing short of transcendent.”
+          </p>
+</div>
+<div class="flex items-center gap-space-md pt-space-md border-t border-surface-container">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold font-title-md text-title-md">
+            EV
+          </div>
+<div class="flex flex-col">
+<h4 class="font-title-md text-title-md text-on-surface font-semibold">Elena Vance</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Head of Coffee, Craft Journal</span>
+</div>
+</div>
+</div>
+<!-- Right: TWO Smaller Quote Cards stacked -->
+<div class="lg:col-span-5 flex flex-col gap-gutter">
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between flex-1">
+<div>
+<div class="flex text-primary text-[15px] mb-space-xs">
+<span class="">★</span><span class="">★</span><span class="">★</span><span class="">★</span><span class="">★</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-space-md italic">
+              “The roast consistency is remarkable. I pull shots on an E61 machine and rarely have to touch grind size between bags.”
+            </p>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface font-semibold text-label-sm">
+              DK
+            </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">David K.</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Home Barista (Bath, UK)</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between flex-1">
+<div>
+<div class="flex text-primary text-[15px] mb-space-xs">
+<span class="">★</span><span class="">★</span><span class="">★</span><span class="">★</span><span class="">★</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-space-md italic">
+              “Packaging is truly plastic-free and decomposes in our garden compost bin. World-class origins without the environmental guilt.”
+            </p>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface font-semibold text-label-sm">
+              SL
+            </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Dr. Sarah Lin</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pour-over Enthusiast</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 9. Signup Form Section -->
+<section class="w-full bg-surface-container-low py-space-xl lg:py-24" id="join-club">
+<div class="max-w-4xl mx-auto px-margin">
+<div class="flex flex-col items-center text-center mb-space-xl">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary mb-2">Personalize Your Delivery</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mb-space-sm">Join the Brewline Club</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">
+          Complete your customized delivery profile below to unlock weekly small-batch specialty coffee.
+        </p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-lg lg:p-space-xl shadow-md">
+<form class="flex flex-col gap-space-lg" onsubmit="event.preventDefault();">
+<!-- Row 1: Name & Email (With Explicit Error State) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Full Name -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-semibold" for="fullName">
+                Full Name
+              </label>
+<input class="bg-surface border border-outline-variant rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary transition-colors" id="fullName" placeholder="Eleanor Vance" type="text" value="Eleanor Vance">
+</div>
+<!-- Email Address with EXPLICIT ERROR STATE -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md uppercase tracking-wider text-error font-semibold" for="email">
+                  Email Address
+                </label>
+<span class="font-label-sm text-label-sm text-error font-medium">Invalid input</span>
+</div>
+<div class="relative">
+<input aria-describedby="email-error-msg" aria-invalid="true" class="w-full bg-surface border-2 border-error text-error rounded-lg px-4 py-2.5 font-body-md text-body-md pr-10 focus:outline-none focus:border-error" id="email" type="email" value="eleanor.vance@invalid">
+<span class="material-symbols-outlined text-error absolute right-3 top-1/2 -translate-y-1/2 text-[20px]">
+                  error
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-error mt-0.5 flex items-center gap-1 font-medium" id="email-error-msg">
+                Please enter a valid email address (e.g., alex@domain.com)
+              </p>
+</div>
+</div>
+<!-- Row 2: Phone & Password -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Phone Number -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-semibold" for="phone">
+                Phone Number
+              </label>
+<input class="bg-surface border border-outline-variant rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary transition-colors" id="phone" placeholder="+44 7911 123456" type="tel">
+</div>
+<!-- Password with show/hide icon -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-semibold" for="password">
+                Password
+              </label>
+<div class="relative">
+<input class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary transition-colors pr-10" id="password" placeholder="••••••••••••" type="password" value="CoffeeRoast2025!">
+<button aria-label="Toggle password visibility" class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Row 3: Delivery Date & Stepper Bags -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- First Delivery Start Date -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-semibold" for="startDate">
+                First Delivery Start Date
+              </label>
+<input class="bg-surface border border-outline-variant rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary transition-colors" id="startDate" type="date" value="2025-04-01">
+</div>
+<!-- Number of Bags Interactive Stepper -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-semibold">
+                Number of Bags (250g each)
+              </label>
+<div class="flex items-center border border-outline-variant rounded-lg bg-surface h-[46px] px-2 justify-between">
+<button aria-label="Decrease quantity" class="w-8 h-8 flex items-center justify-center rounded bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" id="stepper-dec" type="button">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<span class="font-title-md text-title-md font-semibold text-on-surface px-4" id="stepper-count">
+                  2 bags
+                </span>
+<button aria-label="Increase quantity" class="w-8 h-8 flex items-center justify-center rounded bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" id="stepper-inc" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Row 4: Grind Type Dropdown -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-semibold" for="grindType">
+              Grind Type &amp; Method
+            </label>
+<div class="relative">
+<select class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface appearance-none focus:outline-none focus:border-primary transition-colors pr-10" id="grindType">
+<option value="whole-bean">Whole Bean (Recommended for optimal preservation)</option>
+<option value="espresso">Espresso (Extra Fine)</option>
+<option selected="" value="pourover">Pour Over / Chemex (Medium-Coarse)</option>
+<option value="aeropress">Aeropress (Medium-Fine)</option>
+<option value="french-press">French Press / Cafetiere (Coarse)</option>
+<option value="cold-brew">Cold Brew (Extra Coarse)</option>
+</select>
+<span class="material-symbols-outlined text-on-surface-variant pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[20px]">
+                arrow_drop_down
+              </span>
+</div>
+</div>
+<!-- Row 5: Plan Choice Radios -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-semibold">
+              Subscription Plan Choice
+            </label>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm">
+<label class="flex items-center gap-3 p-space-sm border border-outline-variant rounded-lg cursor-pointer bg-surface hover:bg-surface-container-low transition-colors">
+<input class="w-4 h-4 accent-primary" name="planChoice" type="radio" value="explorer">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">The Explorer</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">$18/mo</span>
+</div>
+</label>
+<label class="flex items-center gap-3 p-space-sm border border-primary bg-primary/5 rounded-lg cursor-pointer">
+<input checked="" class="w-4 h-4 accent-primary" name="planChoice" type="radio" value="connoisseur">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-bold">The Connoisseur</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">$32/mo (Most Popular)</span>
+</div>
+</label>
+<label class="flex items-center gap-3 p-space-sm border border-outline-variant rounded-lg cursor-pointer bg-surface hover:bg-surface-container-low transition-colors">
+<input class="w-4 h-4 accent-primary" name="planChoice" type="radio" value="collective">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">The Collective</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">$58/mo</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Row 6: Roast Strength Range Slider -->
+<div class="flex flex-col gap-2 pt-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-semibold" for="roastSlider">
+                Roast Profile Preference
+              </label>
+<span class="font-label-md text-label-md text-primary font-bold" id="roast-label">Medium-Light (Nordic Style)</span>
+</div>
+<input class="w-full accent-primary h-2 bg-surface-container rounded-lg cursor-pointer" id="roastSlider" max="5" min="1" step="1" type="range" value="2">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant px-1 pt-1">
+<span class="">Light</span>
+<span class="">Med-Light</span>
+<span class="">Medium</span>
+<span class="">Med-Dark</span>
+<span class="">Dark Roast</span>
+</div>
+</div>
+<!-- Row 7: Special Delivery Notes -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-semibold" for="notes">
+              Special Delivery Notes / Preferences
+            </label>
+<textarea class="bg-surface border border-outline-variant rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary transition-colors resize-none" id="notes" placeholder="e.g. Leave inside side gate porch if absent, preferred floral/washed African origins." rows="3"></textarea>
+</div>
+<!-- Row 8: Checkbox & Submit Button -->
+<div class="flex flex-col gap-space-md pt-space-xs">
+<label class="flex items-center gap-2.5 cursor-pointer">
+<input checked="" class="w-4 h-4 accent-primary rounded" required="" type="checkbox">
+<span class="font-body-sm text-body-sm text-on-surface">
+                I agree to the <a class="text-primary underline hover:text-on-surface" href="#">Terms of Service</a> and <a class="text-primary underline hover:text-on-surface" href="#">Privacy Policy</a>.
+              </span>
+</label>
+<button class="w-full bg-primary-container text-on-primary-container font-label-md text-label-md uppercase tracking-wider py-4 rounded-lg shadow-sm hover:bg-primary transition-colors text-center font-bold" type="submit">
+              Complete Subscription
+            </button>
+<p class="font-label-sm text-label-sm text-center text-on-surface-variant">
+              🔒 Encrypted 256-bit Stripe checkout. Pause, skip shipments, or cancel whenever you wish.
+            </p>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- 10. Secondary Inline Footer Links Block (Reinforcing requested 4-col taxonomy) -->
+<section class="w-full bg-surface-container py-space-xl">
+<div class="max-w-7xl mx-auto px-margin">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter mb-space-xl">
+<div class="flex flex-col gap-space-sm">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-bold">Explore</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Ethiopian Micro-lots</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Colombian Gesha</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Espresso House Blends</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Decaf Mountain Water</a>
+</div>
+<div class="flex flex-col gap-space-sm">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-bold">Company</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">The Roastery Team</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Direct Trade Ethos</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Zero-Plastic Pledge</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Press &amp; Features</a>
+</div>
+<div class="flex flex-col gap-space-sm">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-bold">Learn</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Dialing Pour-Over</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Water Chemistry Guide</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Processing Methods</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Flavor Wheel Glossary</a>
+</div>
+<div class="flex flex-col gap-space-sm">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-bold">Support</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Manage Subscription</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Shipping Schedule</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Letterbox Dimensions</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Barista Hotline</a>
+</div>
+</div>
+</div>
+</section>
+<!-- 11. Circular 'Back to Top' Floating Button -->
+<a aria-label="Back to top" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-surface-container-lowest text-on-surface shadow-xl flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-[22px]">arrow_upward</span>
+</a>
+<!-- Micro-interaction logic for Stepper and Range slider -->
+<script>
+    (function() {
+      let count = 2;
+      const countEl = document.getElementById('stepper-count');
+      const incBtn = document.getElementById('stepper-inc');
+      const decBtn = document.getElementById('stepper-dec');
+
+      if (incBtn && decBtn && countEl) {
+        incBtn.addEventListener('click', () => {
+          if (count < 10) {
+            count++;
+            countEl.textContent = count + ' bags';
+          }
+        });
+        decBtn.addEventListener('click', () => {
+          if (count > 1) {
+            count--;
+            countEl.textContent = count + ' bag' + (count > 1 ? 's' : '');
+          }
+        });
+      }
+
+      const roastSlider = document.getElementById('roastSlider');
+      const roastLabel = document.getElementById('roast-label');
+      const roastDescriptions = {
+        '1': 'Light (Floral, High Acidity)',
+        '2': 'Medium-Light (Nordic Style)',
+        '3': 'Medium (Balanced & Caramel)',
+        '4': 'Medium-Dark (Rich & Cocoa)',
+        '5': 'Dark Roast (Smoky & Heavy Body)'
+      };
+
+      if (roastSlider && roastLabel) {
+        roastSlider.addEventListener('input', (e) => {
+          roastLabel.textContent = roastDescriptions[e.target.value] || 'Medium';
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-low border-t border-outline-variant mt-space-xl"><div class="max-w-7xl mx-auto px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-gutter mb-space-xl"><div class="lg:col-span-2 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><span class="font-title-md text-title-md text-on-surface tracking-tight uppercase">Brewline</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Artisanal craft roasts and bespoke subscriptions delivered fresh from origin to your cup.</p><form class="flex flex-col sm:flex-row gap-space-xs w-full max-w-sm mt-space-sm"><input class="flex-1 bg-surface-container-lowest border border-outline-variant rounded-lg px-space-sm py-space-xs font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary" placeholder="Enter your email" type="email"><button class="bg-primary-container text-on-primary-container font-label-md text-label-md uppercase tracking-wider px-space-md py-space-xs rounded-lg hover:bg-primary transition-colors" type="button">Subscribe</button></form></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Company</span><nav class="flex flex-col gap-space-xs"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="about-us" href="#">About Us</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="sourcing" href="#">Sourcing</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="careers" href="#">Careers</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="press" href="#">Press</a></nav></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Explore</span><nav class="flex flex-col gap-space-xs"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="single-origin" href="#">Single Origin</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="blends" href="#">House Blends</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="equipment" href="#">Brew Equipment</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="tasting-notes" href="#">Tasting Notes</a></nav></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Subscriptions</span><nav class="flex flex-col gap-space-xs"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="plans" href="#">Roaster's Choice</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="custom-curation" href="#">Custom Curation</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="gift-memberships" href="#">Gift Subscriptions</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="office-brews" href="#">Office &amp; Wholesale</a></nav></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Help</span><nav class="flex flex-col gap-space-xs"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="faq" href="#">FAQ</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="shipping-returns" href="#">Shipping &amp; Returns</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="grind-guide" href="#">Grind Guide</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Contact Support</a></nav></div></div><div class="pt-space-lg border-t border-outline-variant flex flex-col md:flex-row items-center justify-between gap-space-md"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2025 Brewline Coffee Co. All rights reserved.</p><div class="flex items-center gap-space-md"><a aria-label="Instagram" class="text-on-surface-variant hover:text-on-surface transition-colors flex items-center justify-center" href="#"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a><a aria-label="Twitter/X" class="text-on-surface-variant hover:text-on-surface transition-colors flex items-center justify-center" href="#"><span class="material-symbols-outlined text-[20px]">tag</span></a><a aria-label="YouTube" class="text-on-surface-variant hover:text-on-surface transition-colors flex items-center justify-center" href="#"><span class="material-symbols-outlined text-[20px]">smart_display</span></a></div></div></div></footer><a aria-label="Back to top" class="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface flex items-center justify-center shadow-[0_1px_8px_rgba(0,0,0,0.08)] hover:bg-surface-container-high transition-colors" href="#top"><span class="material-symbols-outlined text-[20px]">north</span></a>
+
+</body></html>

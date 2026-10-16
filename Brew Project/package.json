@@ -1,0 +1,22 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "LandingPage.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx @tailwindcss/cli -i input.css -o ./production.css --watch "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alimapari12345-web/Project-Works-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/alimapari12345-web/Project-Works-/issues"
+  },
+  "homepage": "https://github.com/alimapari12345-web/Project-Works-#readme"
+}
